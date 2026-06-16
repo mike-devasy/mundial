@@ -1,0 +1,26 @@
+[data-fls-header-scroll] {
+	transition: all 0.5s;
+	&.--header-scroll {
+		position: fixed;
+		// position: sticky;
+		top: 0;
+		right: 0;
+		left: 0;
+		z-index: 50;
+	// 	@media (width >= toEm($mobileSmall)){
+	// background-color:rgba(12, 12, 24, 0.8);
+			  
+	// 	}
+
+	}
+}
+
+[data-fls-header-scroll-show] {
+	&.--header-scroll {
+		transition: translate 0.3s;
+		translate: 0px -100%;
+	}
+	&.--header-show {
+		translate: 0 0;
+	}
+}

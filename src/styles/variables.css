@@ -1,0 +1,26 @@
+ 
+/** @format */
+
+:root {
+	--fontFamily:"Manrope", sans-serif;
+	--secondaryFont:"Zalando Sans Expanded", serif;
+	--color-white-solid: #fff;
+		--color-black-solid: #000;
+
+  --blueColor: #0076ec;
+  --bgColor: #0c0c18;
+  --orangeColor: #fc6200;
+  --greyColor: #27273f;
+ 
+	 
+		--primary: #000;
+	--secondary: #fff;
+	--orange-01: #fc6200;
+	--button-color: #fc6200;
+	--bg-color: linear-gradient(135deg, #223 0%, #112 100%);
+	--bg-input-color: linear-gradient(90deg, rgba(255, 255, 255, 0.096) 0%, rgba(255, 255, 255, 0.04) 100%);
+	--color-danger: #EF4444;
+	--color-border: #B2B2B2;
+	  --color-primary-muted: #E04E00;
+		 --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.3);
+}

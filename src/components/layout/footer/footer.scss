@@ -1,0 +1,122 @@
+.footer {
+ 
+background-color: var(--bgColor);
+	color: rgba(255, 255, 255, 0.5);
+ 	position: relative;
+	z-index: 5;
+ 	@media (max-width: toEm(768)) {
+		// Hero имеет высоту 777px.
+		// Поднимаем footer так, чтобы он начинался примерно на 553px.
+		margin-top: -224px;
+		// Заполняем тёмным фоном оставшуюся часть высокого экрана.
+		min-height: max(
+			256px,
+			calc(100dvh - 553px)
+		);
+	}
+ 
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 18px;
+		min-height: 52px;
+		padding-block: 13px;
+		font-size: 14px;
+		line-height: 1.2;
+		@media (max-width: toEm(1440)){
+		@include adaptiveValue("padding-inline", 40, 20, 0, 1440, 768);
+
+		}
+		@media (max-width: toEm(830)){
+			  flex-wrap: wrap;
+		}
+	 @media (max-width: toEm(768)) {
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+			gap: toRem(20);
+			min-height: 0;
+			padding-block: toRem(16) toRem(24);
+			font-size: toRem(16);
+		}
+	}
+
+	&__copy {
+		margin: 0;
+		white-space: nowrap;
+	}
+
+	&__link,
+	&__age {
+		color: inherit;
+		text-decoration: none;
+		transition: color 0.2s ease;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--secondary);
+			}
+		}
+	}
+
+	&__link {
+		white-space: nowrap;
+	}
+
+	&__licenses {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		white-space: nowrap;
+	}
+
+	&__license-icon {
+		width: 24px;
+		height: 24px;
+		object-fit: contain;
+	}
+
+	&__license-badge {
+		width: 38px;
+		height: auto;
+		object-fit: contain;
+	}
+
+	&__age {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 24px;
+		width: 24px;
+		height: 24px;
+	}
+
+	&__age-icon {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+ 
+
+	@media (max-width: toEm(768)) {
+		&__licenses {
+			gap: 10px;
+		}
+		&__license-icon {
+			width: 24px;
+			height: 24px;
+		}
+
+		&__license-badge {
+			width: 38px;
+		}
+		&__age {
+			flex-basis: 24px;
+			width: 24px;
+			height: 24px;
+			font-size: 12px;
+		}
+	}
+}

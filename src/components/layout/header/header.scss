@@ -1,0 +1,49 @@
+.header {
+	position: fixed;
+	inset-inline: 0;
+	z-index: 5;
+	pointer-events: none;
+	@include adaptiveValue("padding-top", 40, 20, 0, 1920, 768);
+
+	&__logos {
+		display: flex;
+		justify-content: center;
+		gap: toRem(34);
+		width: 100%;
+		pointer-events: auto;
+	}
+
+	&__brand {
+		display: inline-flex;
+		align-items: center;
+		flex: 0 0 auto;
+		width: toRem(378);
+
+		@media (max-width: toEm(1440)) {
+			@include adaptiveValue("width", 378, 338, 0, 1440, 992);
+		}
+
+		@media (max-width: toEm(768.98)) {
+			@include adaptiveValue("width", 378, 285, 0, 768, 375);
+		}
+
+		&--princess {
+			width: toRem(198);
+
+			@media (max-width: toEm(1440)) {
+				@include adaptiveValue("width", 198, 178, 0, 1440, 992);
+			}
+
+			@media (max-width: toEm(768.98)) {
+				width: toRem(113);
+			}
+		}
+	}
+
+	&__brand-image {
+		display: block;
+		width: 100%;
+		height: auto;
+		object-fit: contain;
+	}
+}
