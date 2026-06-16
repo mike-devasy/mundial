@@ -1,0 +1,17 @@
+node_modules
+dist
+zip
+.vscode
+backend
+reload.txt
+build
+# PHP
+src/php/
+
+# WordPress и тема FLS
+src/components/wordpress/
+
+# WordPress/PHP-модули сборщика FLS
+template_modules/wordpress/
+template_modules/php.js
+template_modules/assets/php.ini
