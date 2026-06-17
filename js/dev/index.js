@@ -385,7 +385,6 @@ async function handleFormSubmit(form) {
 		setSubmitButtonState(submitButton, false);
 	}
 }
-var AR_PHONE_PREFIX = `+54 `;
 var getPhoneLocalDigits = (phoneNumber = "") => {
 	const digits = String(phoneNumber).replace(/\D/g, "");
 	return digits.startsWith("54") ? digits.slice(2) : digits;
@@ -473,54 +472,66 @@ function initFormValidation() {
 }
 //#endregion
 //#region src/components/pages/home/phone-select.js
+/** @format */
+var PHONE_PREFIX = `+54`;
+var PHONE_MASK_START = `${PHONE_PREFIX} (`;
+var formatArPhone = (value = "") => {
+	const digits = getPhoneLocalDigits(value).slice(0, 10);
+	if (!digits.length) return PHONE_PREFIX;
+	const areaCode = digits.slice(0, 3);
+	const firstPart = digits.slice(3, 6);
+	const secondPart = digits.slice(6, 10);
+	let formatted = `${PHONE_MASK_START}${areaCode}`;
+	if (areaCode.length === 3) formatted += ")";
+	if (firstPart.length) formatted += ` ${firstPart}`;
+	if (secondPart.length) formatted += ` - ${secondPart}`;
+	return formatted;
+};
 function initPhoneMask() {
 	const phoneInput = document.querySelector("input[name=\"phone\"]");
-	if (!phoneInput) return;
-	if (typeof window.IMask !== "function") return;
-	const mask = window.IMask(phoneInput, { mask: "+{54} (000) 000 - 0000" });
-	const getPrefixLength = () => AR_PHONE_PREFIX.length;
-	const clampCaretToPrefix = () => {
-		const prefixLength = getPrefixLength();
+	if (!phoneInput || phoneInput.dataset.phoneMaskInitialized === "true") return;
+	phoneInput.dataset.phoneMaskInitialized = "true";
+	phoneInput.value = PHONE_PREFIX;
+	phoneInput.placeholder = "";
+	phoneInput.inputMode = "numeric";
+	phoneInput.autocomplete = "tel";
+	const prefixLength = PHONE_PREFIX.length;
+	const moveCaretToEnd = () => {
 		window.requestAnimationFrame(() => {
-			const selectionStart = phoneInput.selectionStart ?? prefixLength;
-			const selectionEnd = phoneInput.selectionEnd ?? prefixLength;
-			if (selectionStart < prefixLength || selectionEnd < prefixLength) phoneInput.setSelectionRange(prefixLength, prefixLength);
+			const position = phoneInput.value.length;
+			phoneInput.setSelectionRange(position, position);
 		});
 	};
-	const hasLocalDigits = () => getPhoneLocalDigits(mask.value).length > 0;
-	const ensurePrefixWhileFocused = () => {
-		if (document.activeElement !== phoneInput) return;
-		if (!hasLocalDigits()) mask.value = AR_PHONE_PREFIX;
-		clampCaretToPrefix();
+	const moveCaretAfterPrefix = () => {
+		window.requestAnimationFrame(() => {
+			const position = Math.max(prefixLength, phoneInput.value.length);
+			phoneInput.setSelectionRange(position, position);
+		});
 	};
-	phoneInput.addEventListener("focus", () => {
-		if (!mask.value.trim()) {
-			mask.value = AR_PHONE_PREFIX;
-			phoneInput.dispatchEvent(new Event("input", { bubbles: true }));
-		}
-		clampCaretToPrefix();
+	phoneInput.addEventListener("focus", moveCaretAfterPrefix);
+	phoneInput.addEventListener("click", () => {
+		if ((phoneInput.selectionStart ?? 0) < prefixLength) moveCaretAfterPrefix();
 	});
-	phoneInput.addEventListener("blur", () => {
-		if (!hasLocalDigits()) {
-			mask.value = "";
-			phoneInput.dispatchEvent(new Event("input", { bubbles: true }));
-		}
-	});
-	phoneInput.addEventListener("click", clampCaretToPrefix);
 	phoneInput.addEventListener("input", () => {
-		ensurePrefixWhileFocused();
-	});
-	phoneInput.addEventListener("keyup", () => {
-		ensurePrefixWhileFocused();
+		const localDigits = getPhoneLocalDigits(phoneInput.value);
+		phoneInput.value = formatArPhone(localDigits);
+		if (localDigits.length) moveCaretToEnd();
+		else moveCaretAfterPrefix();
 	});
 	phoneInput.addEventListener("keydown", (event) => {
-		const prefixLength = getPrefixLength();
 		const selectionStart = phoneInput.selectionStart ?? prefixLength;
-		const selectionEnd = phoneInput.selectionEnd ?? prefixLength;
-		const isPrefixSelected = selectionStart < prefixLength;
-		if (event.key === "Backspace" && selectionStart <= prefixLength && selectionEnd <= prefixLength || event.key === "Delete" && isPrefixSelected) {
+		const selectionEnd = phoneInput.selectionEnd ?? selectionStart;
+		const localDigits = getPhoneLocalDigits(phoneInput.value);
+		if (event.key === "Backspace" && selectionStart <= prefixLength && selectionEnd <= prefixLength || event.key === "Delete" && selectionStart < prefixLength) {
 			event.preventDefault();
-			phoneInput.setSelectionRange(prefixLength, prefixLength);
+			moveCaretAfterPrefix();
+			return;
+		}
+		if ((event.key === "Backspace" || event.key === "Delete") && localDigits.length <= 1) {
+			event.preventDefault();
+			phoneInput.value = PHONE_PREFIX;
+			phoneInput.dispatchEvent(new Event("input", { bubbles: true }));
+			moveCaretAfterPrefix();
 		}
 	});
 }
@@ -820,504 +831,505 @@ var getCardImage = (fileName) => {
 var matches = [
 	[
 		"2026-06-11-mex-rsa",
-		"2026-06-11",
+		"2026-06-11T01:00:00-03:00",
 		"01.webp",
 		["México", "MEX"],
 		["Sudáfrica", "RSA"]
 	],
 	[
 		"2026-06-12-kor-cze",
-		"2026-06-12",
+		"2026-06-12T01:00:00-03:00",
 		"02.webp",
 		["Corea del Sur", "KOR"],
 		["Chequia", "CZE"]
 	],
 	[
 		"2026-06-12-can-bih",
-		"2026-06-12",
+		"2026-06-12T04:00:00-03:00",
 		"03.webp",
 		["Canadá", "CAN"],
 		["Bosnia", "BIH"]
 	],
 	[
 		"2026-06-13-usa-par",
-		"2026-06-13",
+		"2026-06-13T01:00:00-03:00",
 		"04.webp",
 		["Estados Unidos", "USA"],
 		["Paraguay", "PAR"]
 	],
 	[
 		"2026-06-13-qat-sui",
-		"2026-06-13",
+		"2026-06-13T04:00:00-03:00",
 		"05.webp",
 		["Catar", "QAT"],
 		["Suiza", "SUI"]
 	],
 	[
 		"2026-06-14-bra-mar",
-		"2026-06-14",
+		"2026-06-14T01:00:00-03:00",
 		"06.webp",
 		["Brasil", "BRA"],
 		["Marruecos", "MAR"]
 	],
 	[
 		"2026-06-14-hai-sco",
-		"2026-06-14",
+		"2026-06-14T04:00:00-03:00",
 		"07.webp",
 		["Haití", "HAI"],
 		["Escocia", "SCO"]
 	],
 	[
 		"2026-06-14-aus-tur",
-		"2026-06-14",
+		"2026-06-14T07:00:00-03:00",
 		"08.webp",
 		["Australia", "AUS"],
 		["Turquía", "TUR"]
 	],
 	[
 		"2026-06-14-ger-cuw",
-		"2026-06-14",
+		"2026-06-14T10:00:00-03:00",
 		"09.webp",
 		["Alemania", "GER"],
 		["Curazao", "CUW"]
 	],
 	[
 		"2026-06-14-ned-jpn",
-		"2026-06-14",
+		"2026-06-14T13:00:00-03:00",
 		"10.webp",
 		["Países Bajos", "NED"],
 		["Japón", "JPN"]
 	],
 	[
 		"2026-06-15-civ-ecu",
-		"2026-06-15",
+		"2026-06-15T01:00:00-03:00",
 		"11.webp",
 		["Costa de Marfil", "CIV"],
 		["Ecuador", "ECU"]
 	],
 	[
 		"2026-06-15-swe-tun",
-		"2026-06-15",
+		"2026-06-15T04:00:00-03:00",
 		"12.webp",
 		["Suecia", "SWE"],
 		["Túnez", "TUN"]
 	],
 	[
 		"2026-06-15-esp-cpv",
-		"2026-06-15",
+		"2026-06-15T07:00:00-03:00",
 		"13.webp",
 		["España", "ESP"],
 		["Cabo Verde", "CPV"]
 	],
 	[
 		"2026-06-15-bel-egy",
-		"2026-06-15",
+		"2026-06-15T10:00:00-03:00",
 		"14.webp",
 		["Bélgica", "BEL"],
 		["Egipto", "EGY"]
 	],
 	[
 		"2026-06-16-ksa-uru",
-		"2026-06-16",
+		"2026-06-16T01:00:00-03:00",
 		"15.webp",
 		["Arabia Saudí", "KSA"],
 		["Uruguay", "URU"]
 	],
 	[
 		"2026-06-16-irn-nzl",
-		"2026-06-16",
+		"2026-06-16T04:00:00-03:00",
 		"16.webp",
 		["RI de Irán", "IRN"],
 		["Nueva Zelanda", "NZL"]
 	],
 	[
 		"2026-06-16-fra-sen",
-		"2026-06-16",
+		"2026-06-16T07:00:00-03:00",
 		"17.webp",
 		["Francia", "FRA"],
 		["Senegal", "SEN"]
 	],
 	[
 		"2026-06-17-irq-nor",
-		"2026-06-17",
+		"2026-06-17T01:00:00-03:00",
 		"18.webp",
 		["Irak", "IRQ"],
 		["Noruega", "NOR"]
 	],
 	[
 		"2026-06-17-arg-alg",
-		"2026-06-17",
+		"2026-06-17T04:00:00-03:00",
 		"19.webp",
 		["Argentina", "ARG"],
 		["Argelia", "ALG"]
 	],
 	[
 		"2026-06-17-aut-jor",
-		"2026-06-17",
+		"2026-06-17T07:00:00-03:00",
 		"20.webp",
 		["Austria", "AUT"],
 		["Jordania", "JOR"]
 	],
 	[
 		"2026-06-17-por-cod",
-		"2026-06-17",
+		"2026-06-17T10:00:00-03:00",
 		"21.webp",
 		["Portugal", "POR"],
 		["RD Congo", "COD"]
 	],
 	[
 		"2026-06-17-eng-cro",
-		"2026-06-17",
+		"2026-06-17T13:00:00-03:00",
 		"22.webp",
 		["Inglaterra", "ENG"],
 		["Croacia", "CRO"]
 	],
 	[
 		"2026-06-18-gha-pan",
-		"2026-06-18",
+		"2026-06-18T01:00:00-03:00",
 		"23.webp",
 		["Ghana", "GHA"],
 		["Panamá", "PAN"]
 	],
 	[
 		"2026-06-18-uzb-col",
-		"2026-06-18",
+		"2026-06-18T04:00:00-03:00",
 		"24.webp",
 		["Uzbekistán", "UZB"],
 		["Colombia", "COL"]
 	],
 	[
 		"2026-06-18-sui-bih",
-		"2026-06-18",
+		"2026-06-18T07:00:00-03:00",
 		"25.webp",
 		["Suiza", "SUI"],
 		["Bosnia", "BIH"]
 	],
 	[
 		"2026-06-19-can-qat",
-		"2026-06-19",
+		"2026-06-19T01:00:00-03:00",
 		"26.webp",
 		["Canadá", "CAN"],
 		["Catar", "QAT"]
 	],
 	[
 		"2026-06-19-mex-kor",
-		"2026-06-19",
+		"2026-06-19T04:00:00-03:00",
 		"27.webp",
 		["México", "MEX"],
 		["Corea del Sur", "KOR"]
 	],
 	[
 		"2026-06-19-usa-aus",
-		"2026-06-19",
+		"2026-06-19T07:00:00-03:00",
 		"28.webp",
 		["Estados Unidos", "USA"],
 		["Australia", "AUS"]
 	],
 	[
 		"2026-06-20-sco-mar",
-		"2026-06-20",
+		"2026-06-20T01:00:00-03:00",
 		"29.webp",
 		["Escocia", "SCO"],
 		["Marruecos", "MAR"]
 	],
 	[
 		"2026-06-20-bra-hai",
-		"2026-06-20",
+		"2026-06-20T04:00:00-03:00",
 		"30.webp",
 		["Brasil", "BRA"],
 		["Haití", "HAI"]
 	],
 	[
 		"2026-06-20-tur-par",
-		"2026-06-20",
+		"2026-06-20T07:00:00-03:00",
 		"31.webp",
 		["Turquía", "TUR"],
 		["Paraguay", "PAR"]
 	],
 	[
 		"2026-06-20-ned-swe",
-		"2026-06-20",
+		"2026-06-20T10:00:00-03:00",
 		"32.webp",
 		["Países Bajos", "NED"],
 		["Suecia", "SWE"]
 	],
 	[
 		"2026-06-20-ger-civ",
-		"2026-06-20",
+		"2026-06-20T13:00:00-03:00",
 		"33.webp",
 		["Alemania", "GER"],
 		["Costa de Marfil", "CIV"]
 	],
 	[
 		"2026-06-21-ecu-cuw",
-		"2026-06-21",
+		"2026-06-21T01:00:00-03:00",
 		"34.webp",
 		["Ecuador", "ECU"],
 		["Curazao", "CUW"]
 	],
 	[
 		"2026-06-21-tun-jpn",
-		"2026-06-21",
+		"2026-06-21T04:00:00-03:00",
 		"35.webp",
 		["Túnez", "TUN"],
 		["Japón", "JPN"]
 	],
 	[
 		"2026-06-21-esp-ksa",
-		"2026-06-21",
+		"2026-06-21T07:00:00-03:00",
 		"36.webp",
 		["España", "ESP"],
 		["Arabia Saudí", "KSA"]
 	],
 	[
 		"2026-06-21-bel-irn",
-		"2026-06-21",
+		"2026-06-21T10:00:00-03:00",
 		"37.webp",
 		["Bélgica", "BEL"],
 		["RI de Irán", "IRN"]
 	],
 	[
 		"2026-06-22-uru-cpv",
-		"2026-06-22",
+		"2026-06-22T01:00:00-03:00",
 		"38.webp",
 		["Uruguay", "URU"],
 		["Cabo Verde", "CPV"]
 	],
 	[
 		"2026-06-22-nzl-egy",
-		"2026-06-22",
+		"2026-06-22T04:00:00-03:00",
 		"39.webp",
 		["Nueva Zelanda", "NZL"],
 		["Egipto", "EGY"]
 	],
 	[
 		"2026-06-22-arg-aut",
-		"2026-06-22",
+		"2026-06-22T07:00:00-03:00",
 		"40.webp",
 		["Argentina", "ARG"],
 		["Austria", "AUT"]
 	],
 	[
 		"2026-06-23-fra-irq",
-		"2026-06-23",
+		"2026-06-23T01:00:00-03:00",
 		"41.webp",
 		["Francia", "FRA"],
 		["Irak", "IRQ"]
 	],
 	[
 		"2026-06-23-nor-sen",
-		"2026-06-23",
+		"2026-06-23T04:00:00-03:00",
 		"42.webp",
 		["Noruega", "NOR"],
 		["Senegal", "SEN"]
 	],
 	[
 		"2026-06-23-jor-alg",
-		"2026-06-23",
+		"2026-06-23T07:00:00-03:00",
 		"43.webp",
 		["Jordania", "JOR"],
 		["Argelia", "ALG"]
 	],
 	[
 		"2026-06-23-por-uzb",
-		"2026-06-23",
+		"2026-06-23T10:00:00-03:00",
 		"44.webp",
 		["Portugal", "POR"],
 		["Uzbekistán", "UZB"]
 	],
 	[
 		"2026-06-23-eng-gha",
-		"2026-06-23",
+		"2026-06-23T13:00:00-03:00",
 		"45.webp",
 		["Inglaterra", "ENG"],
 		["Ghana", "GHA"]
 	],
 	[
 		"2026-06-24-pan-cro",
-		"2026-06-24",
+		"2026-06-24T01:00:00-03:00",
 		"46.webp",
 		["Panamá", "PAN"],
 		["Croacia", "CRO"]
 	],
 	[
 		"2026-06-24-col-cod",
-		"2026-06-24",
+		"2026-06-24T04:00:00-03:00",
 		"47.webp",
 		["Colombia", "COL"],
 		["RD Congo", "COD"]
 	],
 	[
 		"2026-06-24-sui-can",
-		"2026-06-24",
+		"2026-06-24T07:00:00-03:00",
 		"48.webp",
 		["Suiza", "SUI"],
 		["Canadá", "CAN"]
 	],
 	[
 		"2026-06-24-bih-qat",
-		"2026-06-24",
+		"2026-06-24T10:00:00-03:00",
 		"49.webp",
 		["Bosnia", "BIH"],
 		["Catar", "QAT"]
 	],
 	[
 		"2026-06-25-sco-bra",
-		"2026-06-25",
+		"2026-06-25T01:00:00-03:00",
 		"50.webp",
 		["Escocia", "SCO"],
 		["Brasil", "BRA"]
 	],
 	[
 		"2026-06-25-mar-hai",
-		"2026-06-25",
+		"2026-06-25T04:00:00-03:00",
 		"51.webp",
 		["Marruecos", "MAR"],
 		["Haití", "HAI"]
 	],
 	[
 		"2026-06-25-cze-mex",
-		"2026-06-25",
+		"2026-06-25T07:00:00-03:00",
 		"52.webp",
 		["Chequia", "CZE"],
 		["México", "MEX"]
 	],
 	[
 		"2026-06-25-rsa-kor",
-		"2026-06-25",
+		"2026-06-25T10:00:00-03:00",
 		"53.webp",
 		["Sudáfrica", "RSA"],
 		["Corea del Sur", "KOR"]
 	],
 	[
 		"2026-06-25-cuw-civ",
-		"2026-06-25",
+		"2026-06-25T13:00:00-03:00",
 		"54.webp",
 		["Curazao", "CUW"],
 		["Costa de Marfil", "CIV"]
 	],
 	[
 		"2026-06-25-ecu-ger",
-		"2026-06-25",
+		"2026-06-25T16:00:00-03:00",
 		"55.webp",
 		["Ecuador", "ECU"],
 		["Alemania", "GER"]
 	],
 	[
 		"2026-06-26-jpn-swe",
-		"2026-06-26",
+		"2026-06-26T01:00:00-03:00",
 		"56.webp",
 		["Japón", "JPN"],
 		["Suecia", "SWE"]
 	],
 	[
 		"2026-06-26-tun-ned",
-		"2026-06-26",
+		"2026-06-26T04:00:00-03:00",
 		"57.webp",
 		["Túnez", "TUN"],
 		["Países Bajos", "NED"]
 	],
 	[
 		"2026-06-26-tur-usa",
-		"2026-06-26",
+		"2026-06-26T07:00:00-03:00",
 		"58.webp",
 		["Turquía", "TUR"],
 		["Estados Unidos", "USA"]
 	],
 	[
 		"2026-06-26-par-aus",
-		"2026-06-26",
+		"2026-06-26T10:00:00-03:00",
 		"59.webp",
 		["Paraguay", "PAR"],
 		["Australia", "AUS"]
 	],
 	[
 		"2026-06-26-nor-fra",
-		"2026-06-26",
+		"2026-06-26T13:00:00-03:00",
 		"60.webp",
 		["Noruega", "NOR"],
 		["Francia", "FRA"]
 	],
 	[
 		"2026-06-26-sen-irq",
-		"2026-06-26",
+		"2026-06-26T16:00:00-03:00",
 		"61.webp",
 		["Senegal", "SEN"],
 		["Irak", "IRQ"]
 	],
 	[
 		"2026-06-27-cpv-ksa",
-		"2026-06-27",
+		"2026-06-27T01:00:00-03:00",
 		"62.webp",
 		["Cabo Verde", "CPV"],
 		["Arabia Saudí", "KSA"]
 	],
 	[
 		"2026-06-27-uru-esp",
-		"2026-06-27",
+		"2026-06-27T04:00:00-03:00",
 		"63.webp",
 		["Uruguay", "URU"],
 		["España", "ESP"]
 	],
 	[
 		"2026-06-27-egy-irn",
-		"2026-06-27",
+		"2026-06-27T07:00:00-03:00",
 		"64.webp",
 		["Egipto", "EGY"],
 		["RI de Irán", "IRN"]
 	],
 	[
 		"2026-06-27-nzl-bel",
-		"2026-06-27",
+		"2026-06-27T10:00:00-03:00",
 		"65.webp",
 		["Nueva Zelanda", "NZL"],
 		["Bélgica", "BEL"]
 	],
 	[
 		"2026-06-28-pan-eng",
-		"2026-06-28",
+		"2026-06-28T01:00:00-03:00",
 		"66.webp",
 		["Panamá", "PAN"],
 		["Inglaterra", "ENG"]
 	],
 	[
 		"2026-06-28-cro-gha",
-		"2026-06-28",
+		"2026-06-28T04:00:00-03:00",
 		"67.webp",
 		["Croacia", "CRO"],
 		["Ghana", "GHA"]
 	],
 	[
 		"2026-06-28-col-por",
-		"2026-06-28",
+		"2026-06-28T07:00:00-03:00",
 		"68.webp",
 		["Colombia", "COL"],
 		["Portugal", "POR"]
 	],
 	[
 		"2026-06-28-cod-uzb",
-		"2026-06-28",
+		"2026-06-28T10:00:00-03:00",
 		"69.webp",
 		["RD Congo", "COD"],
 		["Uzbekistán", "UZB"]
 	],
 	[
 		"2026-06-28-alg-aut",
-		"2026-06-28",
+		"2026-06-28T13:00:00-03:00",
 		"70.webp",
 		["Argelia", "ALG"],
 		["Austria", "AUT"]
 	],
 	[
 		"2026-06-28-jor-arg",
-		"2026-06-28",
+		"2026-06-28T16:00:00-03:00",
 		"71.webp",
 		["Jordania", "JOR"],
 		["Argentina", "ARG"]
 	]
-].map(([id, date, imageFile, home, away]) => ({
+].map(([id, kickoff, imageFile, home, away]) => ({
 	id,
-	date,
+	date: kickoff.slice(0, 10),
+	kickoff,
 	image: getCardImage(imageFile),
 	home: {
 		name: home[0],
@@ -1330,15 +1342,31 @@ var matches = [
 }));
 //#endregion
 //#region src/components/pages/home/home.js
+var LIVE_DURATION_MINUTES = 120;
+var STATUS_REFRESH_INTERVAL = 3600 * 1e3;
+var MANUAL_PAUSE_DURATION = 12 * 1e3;
+var LIVE_CENTER_INTERVAL = 5 * 1e3;
+var FORCED_PAST_LAST_DATE = "2026-06-16";
 var formatMatchDate = (date) => {
 	const [, month, day] = date.split("-");
 	return `${day}.${month}`;
+};
+var clampIndex = (index, maxIndex) => Math.max(0, Math.min(index, maxIndex));
+var getMatchStatus = (match, now = /* @__PURE__ */ new Date()) => {
+	if (match.date <= FORCED_PAST_LAST_DATE) return "past";
+	const kickoffTime = new Date(match.kickoff).getTime();
+	const liveEndsAt = kickoffTime + LIVE_DURATION_MINUTES * 60 * 1e3;
+	const currentTime = now.getTime();
+	if (currentTime >= kickoffTime && currentTime < liveEndsAt) return "live";
+	if (currentTime >= liveEndsAt) return "past";
+	return "upcoming";
 };
 var createMatchSlide = (match, index) => {
 	const slide = document.createElement("article");
 	const matchLabel = `${formatMatchDate(match.date)}: ${match.home.name} vs ${match.away.name}`;
 	slide.className = "match-slider__slide";
 	slide.dataset.matchIndex = String(index);
+	slide.dataset.matchId = match.id;
 	slide.setAttribute("aria-label", matchLabel);
 	const image = document.createElement("img");
 	image.className = "match-slider__image";
@@ -1358,25 +1386,151 @@ var initMatchSlider = () => {
 	const nextButton = document.querySelector("[data-match-slider-next]");
 	if (!track || !viewport || track.dataset.matchSliderInitialized === "true") return;
 	const slides = matches.map(createMatchSlide);
-	let activeIndex = Math.min(2, slides.length - 1);
+	const maxIndex = slides.length - 1;
+	let activeIndex = Math.min(2, maxIndex);
+	let statuses = [];
+	let autoCenterTimerId = null;
+	let pauseTimerId = null;
+	let resizeTimerId = null;
+	let liveCycleIndex = 0;
+	let highlightedIndex = -1;
+	let isAutoPaused = false;
+	let isProgrammaticScroll = false;
 	track.replaceChildren(...slides);
 	track.dataset.matchSliderInitialized = "true";
-	const setActiveSlide = (nextIndex, shouldScroll = true) => {
-		activeIndex = Math.max(0, Math.min(nextIndex, slides.length - 1));
-		slides.forEach((slide, index) => {
-			slide.classList.toggle("match-slider__slide--active", index === activeIndex);
+	const getLiveIndexes = () => statuses.reduce((indexes, status, index) => {
+		if (status === "live") indexes.push(index);
+		return indexes;
+	}, []);
+	const getPreferredIndex = () => {
+		const liveIndexes = getLiveIndexes();
+		if (liveIndexes.length) return highlightedIndex >= 0 ? highlightedIndex : liveIndexes[liveCycleIndex % liveIndexes.length];
+		const nextUpcomingIndex = statuses.findIndex((status) => status === "upcoming");
+		if (nextUpcomingIndex >= 0) return nextUpcomingIndex;
+		return maxIndex;
+	};
+	const centerSlide = (index, behavior = "smooth") => {
+		const slide = slides[index];
+		if (!slide) return;
+		const nextScrollLeft = slide.offsetLeft - (viewport.clientWidth - slide.offsetWidth) / 2;
+		isProgrammaticScroll = true;
+		viewport.scrollTo({
+			left: nextScrollLeft,
+			behavior
 		});
+		window.setTimeout(() => {
+			isProgrammaticScroll = false;
+		}, 900);
+	};
+	const clearAutoCenterTimer = () => {
+		if (!autoCenterTimerId) return;
+		window.clearTimeout(autoCenterTimerId);
+		autoCenterTimerId = null;
+	};
+	const updateControls = () => {
 		if (prevButton) prevButton.disabled = activeIndex === 0;
-		if (nextButton) nextButton.disabled = activeIndex === slides.length - 1;
-		if (shouldScroll) slides[activeIndex]?.scrollIntoView({
-			behavior: "smooth",
-			block: "nearest",
-			inline: "center"
+		if (nextButton) nextButton.disabled = activeIndex === maxIndex;
+	};
+	const setHighlightedSlide = (nextIndex) => {
+		highlightedIndex = statuses[nextIndex] === "live" ? nextIndex : -1;
+		slides.forEach((slide, index) => {
+			slide.classList.toggle("is-highlighted", index === highlightedIndex);
 		});
 	};
-	prevButton?.addEventListener("click", () => setActiveSlide(activeIndex - 1));
-	nextButton?.addEventListener("click", () => setActiveSlide(activeIndex + 1));
-	setActiveSlide(activeIndex, false);
+	const setActiveSlide = (nextIndex, { shouldCenter = true, behavior = "smooth", pauseAuto = false } = {}) => {
+		activeIndex = clampIndex(nextIndex, maxIndex);
+		updateControls();
+		if (pauseAuto) pauseAutoCentering();
+		if (shouldCenter) centerSlide(activeIndex, behavior);
+	};
+	const applyStatuses = () => {
+		statuses = matches.map((match) => getMatchStatus(match));
+		slides.forEach((slide, index) => {
+			const status = statuses[index];
+			slide.dataset.matchStatus = status;
+			slide.classList.toggle("is-past", status === "past");
+			slide.classList.toggle("is-live", status === "live");
+			slide.classList.toggle("is-upcoming", status === "upcoming");
+		});
+		if (highlightedIndex >= 0 && statuses[highlightedIndex] !== "live") setHighlightedSlide(-1);
+	};
+	const scheduleAutoCentering = () => {
+		clearAutoCenterTimer();
+		if (isAutoPaused) return;
+		const liveIndexes = getLiveIndexes();
+		if (!liveIndexes.length) {
+			setHighlightedSlide(-1);
+			return;
+		}
+		if (liveIndexes.length === 1) {
+			liveCycleIndex = 0;
+			setHighlightedSlide(liveIndexes[0]);
+			return;
+		}
+		autoCenterTimerId = window.setTimeout(() => {
+			liveCycleIndex = (liveCycleIndex + 1) % liveIndexes.length;
+			const nextLiveIndex = liveIndexes[liveCycleIndex];
+			setHighlightedSlide(nextLiveIndex);
+			setActiveSlide(nextLiveIndex, { pauseAuto: false });
+			scheduleAutoCentering();
+		}, LIVE_CENTER_INTERVAL);
+	};
+	const refreshStatuses = ({ shouldCenter = true } = {}) => {
+		applyStatuses();
+		if (shouldCenter && !isAutoPaused) {
+			const liveIndexes = getLiveIndexes();
+			if (liveIndexes.length) {
+				const nextLiveIndex = liveIndexes[liveCycleIndex % liveIndexes.length];
+				setHighlightedSlide(nextLiveIndex);
+				setActiveSlide(nextLiveIndex, { pauseAuto: false });
+			} else {
+				setHighlightedSlide(-1);
+				setActiveSlide(getPreferredIndex(), { pauseAuto: false });
+			}
+		}
+		scheduleAutoCentering();
+	};
+	function pauseAutoCentering() {
+		isAutoPaused = true;
+		clearAutoCenterTimer();
+		if (pauseTimerId) window.clearTimeout(pauseTimerId);
+		pauseTimerId = window.setTimeout(() => {
+			isAutoPaused = false;
+			pauseTimerId = null;
+			refreshStatuses();
+		}, MANUAL_PAUSE_DURATION);
+	}
+	const handleManualInteraction = () => {
+		pauseAutoCentering();
+	};
+	prevButton?.addEventListener("click", () => {
+		setActiveSlide(activeIndex - 1, { pauseAuto: true });
+	});
+	nextButton?.addEventListener("click", () => {
+		setActiveSlide(activeIndex + 1, { pauseAuto: true });
+	});
+	viewport.addEventListener("pointerdown", handleManualInteraction, { passive: true });
+	viewport.addEventListener("touchstart", handleManualInteraction, { passive: true });
+	viewport.addEventListener("wheel", handleManualInteraction, { passive: true });
+	viewport.addEventListener("scroll", () => {
+		if (!isProgrammaticScroll) handleManualInteraction();
+	}, { passive: true });
+	window.addEventListener("resize", () => {
+		if (resizeTimerId) window.clearTimeout(resizeTimerId);
+		resizeTimerId = window.setTimeout(() => {
+			centerSlide(activeIndex, "auto");
+		}, 150);
+	});
+	document.addEventListener("visibilitychange", () => {
+		if (!document.hidden) refreshStatuses();
+	});
+	window.addEventListener("focus", () => {
+		refreshStatuses();
+	});
+	refreshStatuses();
+	window.setInterval(() => {
+		refreshStatuses();
+	}, STATUS_REFRESH_INTERVAL);
 };
 var initPopupFlow = () => {
 	const flow = document.querySelector("[data-popup-flow]");
