@@ -5,8 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="assets/img/favicon.ico">
 		<title>Mundial</title>
-		<script type="module" crossorigin="" src="./js/index.min.js?v=1781649213036"></script>
-		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1781649213036">
+		<script type="module" crossorigin="" src="./js/index.min.js?v=1781716999657"></script>
+		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1781716999657">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -115,39 +115,20 @@
 								<section class="hero__matches matches" aria-labelledby="matches-title">
 									<h2 class="matches__title" id="matches-title">Los partidos que se vienen:</h2>
 									<div class="matches__slider match-slider" aria-label="Próximos partidos">
-										<button class="match-slider__arrow match-slider__arrow--prev" type="button" aria-label="Partido anterior">
+										<button class="match-slider__arrow match-slider__arrow--prev" type="button" aria-label="Partido anterior" data-match-slider-prev="">
 											<span></span>
 										</button>
-										<div class="match-slider__viewport">
-											<div class="match-slider__track">
-												<article class="match-slider__slide">
-													<picture>
-														<img class="match-slider__image" alt="Sudáfrica vs Corea del Sur" src="./assets/img/cards/01.webp">
-													</picture>
-												</article>
-												<article class="match-slider__slide">
-													<picture>
-														<img class="match-slider__image" alt="Corea del Sur vs Chequia" src="./assets/img/cards/02.webp">
-													</picture>
-												</article>
+										<div class="match-slider__viewport" data-match-slider-viewport="">
+											<div class="match-slider__track" data-match-slider-track="">
 												<article class="match-slider__slide match-slider__slide--active">
 													<picture>
-														<img class="match-slider__image" alt="Canadá vs Bosnia" src="./assets/img/cards/03.webp">
+														<img class="match-slider__image" alt="Canadá vs Bosnia, 12.06" src="./assets/img/cards/03.webp">
 													</picture>
-												</article>
-												<article class="match-slider__slide">
-													<picture>
-														<img class="match-slider__image" alt="Estados Unidos vs Paraguay" src="./assets/img/cards/04.webp">
-													</picture>
-												</article>
-												<article class="match-slider__slide">
-													<picture>
-														<img class="match-slider__image" alt="Catar vs Suiza" src="./assets/img/cards/05.webp">
-													</picture>
+													<span class="match-slider__meta">12.06: Canadá vs Bosnia</span>
 												</article>
 											</div>
 										</div>
-										<button class="match-slider__arrow match-slider__arrow--next" type="button" aria-label="Siguiente partido">
+										<button class="match-slider__arrow match-slider__arrow--next" type="button" aria-label="Siguiente partido" data-match-slider-next="">
 											<span></span>
 										</button>
 									</div>
@@ -173,6 +154,9 @@
 						<img class="footer__age-icon" src="./assets/img/footer/svgicons/age-18-plus.svg" alt="">
 					</a>
 				</div>
+				<p class="footer__note">
+					Los valores indicados son el total en bonos que recib&iacute;s con tus primeros 10 dep&oacute;sitos de $5.000 ARS o m&aacute;s.
+				</p>
 			</footer>
 		</div>
 		<!-- @format -->
