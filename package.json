@@ -12,7 +12,7 @@
     "zip": "vite build -- --zip",
     "tmp": "vite build -- --tmp --zip",
     "deploy": "vite build -- --ftp",
-		"git": "vite build && gh-pages -d dist -b gh-pages -r https://github.com/mike-devasy/princess.git -m \"Deploy Princess landing\"",
+		"git": "vite build && gh-pages -d dist -b gh-pages -r https://github.com/mike-devasy/mundial.git -m \"Deploy Mundial landing\"",
     "stat": "node template_modules/statistics.js -- --stat",
     "stat-clear": "node template_modules/statistics.js -- --stat-clear",
     "add": "node template_modules/createcomponent.js",

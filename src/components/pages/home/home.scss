@@ -15,6 +15,8 @@ body {
 }
 
 .wrapper {
+	--footer-overlap: #{toRem(34)};
+
 	min-height: 100dvh;
 	background-color: var(--bgColor);
 	overflow-x: clip;
@@ -41,14 +43,16 @@ body {
 		}
 
 		&::before {
-			background: rgba(5, 8, 24, 0.33);
+			// background: rgba(5, 8, 24, 0.33);
 		}
 
 		&::after {
 			inset: auto 0 0;
 			height: 42%;
-			background: linear-gradient(180deg, rgba(12, 12, 24, 0) 0%, var(--bgColor) 100%);
+			background: linear-gradient(180deg, rgba(75, 75, 121, 0) 50%, var(--bgColor) 100%);
+		 
 		}
+
 	}
 
 	&__image {
@@ -72,7 +76,8 @@ body {
 		z-index: 1;
 		width: 100%;
 		min-height: calc(100svh - toRem(84));
-		@include adaptiveValue("padding-top", 154, 110, 0, 1920, 992);
+		// @include adaptiveValue("padding-top", 154, 110, 0, 1920, 992);
+		padding-top: 100px;
 		@include adaptiveValue("padding-bottom", 82, 58, 0, 1920, 992);
 	}
 
@@ -90,11 +95,11 @@ body {
 		font-family: var(--secondaryFont);
 		font-style: italic;
 		font-weight: 800;
-		@include adaptiveValue("font-size", 42, 40, 0, 1920, 992);
+	  font-size: 42px;
 		line-height: 1.42;
 		text-transform: uppercase;
 		text-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
-
+ 
 		span {
 			display: block;
 
@@ -107,15 +112,14 @@ body {
 	&__text {
 		max-width: toRem(940);
 		margin: 0;
-		@include adaptiveValue("margin-top", 18, 24, 0, 1920, 992);
-		font-size: toRem(22);
-		line-height: 1.25;
+	margin-top: 20px;
+		font-size: toRem(20);
+		line-height: 1.35;
 		text-shadow: 0 3px 14px rgba(0, 0, 0, 0.45);
+ 
 	}
 
-	&__bonus {
-		@include adaptiveValue("margin-top", 25, 24, 0, 1920, 992);
-	}
+ 
 
 	&__matches {
 		@include adaptiveValue("margin-top", 43, 36, 0, 1920, 992);
@@ -128,17 +132,23 @@ body {
 		width: min(100%, toRem(474));
 		min-height: toRem(72);
 		@include adaptiveValue("margin-top", 39, 36, 0, 1920, 992);
-		padding-inline: toRem(24);
+		// padding-inline: toRem(24);
 		border-radius: toRem(10);
-		background: var(--orangeColor);
+		background: var(--button-color);
 		color: #ffffff;
 		font-family: var(--secondaryFont);
-		font-size: toRem(24);
+		font-size: toRem(20);
 		font-weight: 700;
 		line-height: 1.2;
 		text-align: center;
 		text-transform: uppercase;
 		box-shadow: 0 toRem(14) toRem(32) rgba(0, 0, 0, 0.35);
+		transition: all 0.5s;
+		@media (any-hover: hover){
+			&:hover{
+				background: var(--orangeColor);
+			}
+		}
 	}
 }
 
@@ -178,27 +188,34 @@ body {
 	justify-content: center;
 	gap: toRem(6);
 	width: 100%;
-
+margin-top: 10px;
 	&__image {
 		display: block;
 		width: min(100%, toRem(440));
 		height: auto;
 		object-fit: contain;
+		@media (max-width: toEm(920)){
+			@include adaptiveValue("width", 440, 370, 0, 920, 770);  
+		}
 	}
 }
 
 .matches {
-	width: 100%;
+	width: 100vw;
+	margin-inline: calc(50% - 50vw);
 
 	&__title {
 		margin: 0;
 		font-family: var(--secondaryFont);
 		font-style: italic;
 		font-weight: 800;
-		@include adaptiveValue("font-size", 28, 26, 0, 1920, 992);
-		line-height: 1.2;
+	font-size: 24px;
+		line-height: 1.4;
 		text-transform: uppercase;
 		text-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
+		@media (max-width:$mobileSmall){
+			 font-size: 20px; 
+		}
 	}
 
 	&__slider {
@@ -207,48 +224,76 @@ body {
 }
 
 .match-slider {
+	--match-slider-slide-width: #{toRem(474)};
+
 	position: relative;
 	width: 100%;
 
 	&__viewport {
-		overflow: hidden;
+		overflow-x: auto;
+		overflow-y: hidden;
 		width: 100%;
+		margin-block: toRem(-30);
+		padding-block: toRem(30);
+		scroll-behavior: smooth;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
 	}
 
 	&__track {
-		position: relative;
-		left: 50%;
 		display: flex;
 		align-items: center;
 		gap: toRem(24);
 		width: max-content;
-		transform: translateX(-50%);
+		padding-inline: calc(50vw - (var(--match-slider-slide-width) / 2));
 	}
 
 	&__slide {
 		flex: 0 0 auto;
-		width: toRem(474);
+		width: var(--match-slider-slide-width);
 		border-radius: toRem(24);
-		filter: grayscale(1);
-		opacity: 0.74;
 		overflow: hidden;
 		box-shadow: 0 toRem(18) toRem(35) rgba(0, 0, 0, 0.42);
 		scroll-snap-align: center;
 	}
 
-	&__slide--active {
-		filter: none;
-		opacity: 1;
+	&__slide.is-highlighted {
 		box-shadow:
 			0 0 0 toRem(2) var(--orangeColor),
 			0 0 toRem(26) rgba(252, 98, 0, 0.7),
 			0 toRem(18) toRem(35) rgba(0, 0, 0, 0.42);
 	}
 
+	&__slide.is-past {
+		.match-slider__image {
+			filter: grayscale(1);
+			opacity: 0.65;
+		}
+	}
+
 	&__image {
 		display: block;
 		width: 100%;
 		height: auto;
+		transition:
+			filter 0.3s ease,
+			opacity 0.3s ease;
+	}
+
+	&__meta {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
 	}
 
 	&__arrow {
@@ -263,6 +308,16 @@ body {
 		background: #090b1b;
 		transform: translateY(-50%);
 		box-shadow: 0 toRem(12) toRem(26) rgba(0, 0, 0, 0.35);
+		transition: all 0.3s;
+@media (any-hover: hover){
+	&:hover{
+		background: #161c3e;
+	}
+}
+		&:disabled {
+			opacity: 0.45;
+			cursor: default;
+		}
 
 		span {
 			display: block;
@@ -274,7 +329,7 @@ body {
 	}
 
 	&__arrow--prev {
-		left: calc(50% - toRem(322));
+		@include adaptiveValue("left", 54, 32, 0, 1920, 992);
 
 		span {
 			transform: rotate(-135deg) translate(-1px, -1px);
@@ -282,11 +337,23 @@ body {
 	}
 
 	&__arrow--next {
-		right: calc(50% - toRem(322));
+		@include adaptiveValue("right", 54, 32, 0, 1920, 992);
 
 		span {
 			transform: rotate(45deg) translate(-1px, 1px);
 		}
+	}
+}
+
+@media (min-width: toEm(768.02)) and (max-width: toEm(992)) {
+	.wrapper {
+		--footer-overlap: #{toRem(160)};
+	}
+}
+
+@media (min-width: toEm(820)) and (max-width: toEm(1100)) and (min-height: toEm(1000)) {
+	.wrapper {
+		--footer-overlap: #{toRem(260)};
 	}
 }
 
@@ -317,6 +384,10 @@ body {
 }
 
 @media (max-width: toEm(768)) {
+	.wrapper {
+		@include adaptiveValue("--footer-overlap", 80, 44, 0, 768, 375);
+	}
+
 	.hero {
 		min-height: auto;
 
@@ -326,7 +397,7 @@ body {
 			}
 
 			&::after {
-				height: 34%;
+		background:none;
 			}
 		}
 
@@ -337,7 +408,7 @@ body {
 		}
 
 		&__title {
-			@include adaptiveValue("font-size", 42, 28, 0, 768, 375);
+			@include adaptiveValue("font-size", 42, 24, 0, 768, 375);
 			line-height: 1.42;
 		}
 
@@ -345,7 +416,7 @@ body {
 			max-width: toRem(650);
 			@include adaptiveValue("margin-top", 24, 22, 0, 768, 375);
 			@include adaptiveValue("padding-inline", 62, 20, 0, 768, 375);
-			@include adaptiveValue("font-size", 20, 18, 0, 768, 375);
+			@include adaptiveValue("font-size", 20, 16, 0, 768, 375);
 			line-height: 1.32;
 		}
 
@@ -358,19 +429,19 @@ body {
 		}
 
 		&__cta {
-			width: calc(100% - toRem(40));
-			max-width: toRem(474);
-			min-height: toRem(59);
+			// width: calc(100% - toRem(40));
+			@include adaptiveValue("width", 474, 330, 0, 768, 375);
+			// max-width: toRem(474);
 			@include adaptiveValue("margin-top", 40, 33, 0, 768, 375);
 			border-radius: toRem(8);
-			@include adaptiveValue("font-size", 22, 18, 0, 768, 375);
+			@include adaptiveValue("font-size", 20, 16, 0, 768, 375);
 		}
 	}
 
 	.bonus-items {
 		flex-direction: column;
 		align-items: center;
-		gap: toRem(20);
+	@include adaptiveValue("gap", 20, 8, 0, 768, 375);
 		padding-inline: toRem(20);
 
 		&__image {
@@ -389,44 +460,30 @@ body {
 	}
 
 	.match-slider {
+		@include adaptiveValue("--match-slider-slide-width", 474, 315, 0, 768, 375);
+
 		&__track {
-			gap: toRem(24);
+	@include adaptiveValue("gap", 24, 16, 0, 768, 375);
 		}
-
-		&__slide {
-			@include adaptiveValue("width", 474, 326, 0, 768, 375);
-			border-radius: toRem(18);
-		}
-
+&__viewport{
+	// margin-inline: -15px;
+}
 		&__arrow {
-			width: toRem(64);
-			height: toRem(64);
-		}
-
-		&__arrow--prev {
-			left: toRem(20);
-		}
-
-		&__arrow--next {
-			right: toRem(20);
+			display: none;
 		}
 	}
 }
 
 @media (max-width: toEm(480)) {
-	.hero {
-		&__title {
-			max-width: toRem(345);
-		}
-	}
+	 .hero__cta{ 
+	@include adaptiveValue("width", 400, 330, 0, 480, 375);
+			min-height: toRem(59);
+
+	 }
 
 	.match-slider {
 		&__track {
 			gap: toRem(17);
-		}
-
-		&__arrow {
-			display: none;
 		}
 	}
 }

@@ -19,7 +19,7 @@
 | `src/design-reference` | `desktop.png`, `tablet.png`, `mobile.png`, `small.png` | `1920x1080`, `992x1080`, `768x1454`, `375x1230` |
 | `src/assets/img/hero` | `hero-image-desktop.png`, `hero-image-tablet.png`, `hero-image-mobile.png` | `1920x1080`, `992x1080`, `768x1454` |
 | `src/assets/img/bonus-items` | `01.png`, `02.png` | both `440x122` |
-| `src/assets/img/cards` | `01.png` through `71.png` | all `474x256` |
+| `src/assets/img/cards` | `01.webp` through `71.webp` | all `474x256` |
 
 Cards found: `71`.
 

@@ -66,9 +66,9 @@ Cards:
 
 Temporary slider cards used in static layout:
 
-- `src/assets/img/cards/02.png`: Corea del Sur vs Chequia;
-- `src/assets/img/cards/03.png`: Canadá vs Bosnia, central active test card;
-- `src/assets/img/cards/04.png`: Estados Unidos vs Paraguay.
+- `src/assets/img/cards/02.webp`: Corea del Sur vs Chequia;
+- `src/assets/img/cards/03.webp`: Canadá vs Bosnia, central active test card;
+- `src/assets/img/cards/04.webp`: Estados Unidos vs Paraguay.
 
 ## Static Layout Completed
 

@@ -33,6 +33,23 @@ This is an FLS/Vite frontend project.
 - Prefer `adaptiveValue`, `toRem`, `toEm` when appropriate.
 - Do not add heavy libraries for simple layout or animation.
 
+### Shared CSS variables
+
+- Store all reusable project CSS custom properties in:
+
+```text
+src/styles/variables.css
+```
+
+- Before creating a variable, inspect `src/styles/variables.css` and reuse an existing token when possible.
+- Do not scatter reusable global variables across page or component SCSS files.
+- Add a new variable to `src/styles/variables.css` when it:
+  - is reused in more than one place;
+  - represents a shared color, spacing, size, radius, shadow, transition, or layout token;
+  - belongs to the project design system.
+- A component-local custom property may remain inside the component only when it is used exclusively by that component and has no shared design meaning.
+- Do not create duplicate variables with different names for the same value.
+
 ## Adaptive implementation rules for this project
 
 ### Main tool
@@ -46,6 +63,49 @@ This is an FLS/Vite frontend project.
   - width and height of ordinary elements;
   - distances between blocks.
 - Do not replace `adaptiveValue()` with `clamp()` without a confirmed reason.
+
+### When not to use `adaptiveValue()`
+
+- Do not create a fluid adaptive value when the difference between the maximum and minimum values is `3px` or less.
+- If the value is identical at desktop, laptop, and tablet widths and changes only on mobile:
+  - keep the shared value fixed for the unchanged ranges;
+  - apply the changed value only in the relevant lower viewport range;
+  - use `adaptiveValue()` only between the two viewport widths where the value actually changes.
+- Do not interpolate across the full desktop-to-mobile range when the design changes only near mobile.
+- Prefer a fixed value plus one breakpoint when fluid interpolation gives no visible benefit.
+- Before adding `adaptiveValue()`, compare the control-width values and confirm that the property genuinely changes across the selected range.
+
+Bad:
+
+```scss
+.title {
+  @include adaptiveValue("font-size", 18, 16, 0, 1920, 375);
+}
+```
+
+when `18px` is used at `1920`, `1440`, `992`, and `768`, and only mobile uses `16px`.
+
+Better:
+
+```scss
+.title {
+  font-size: toRem(18);
+
+  @media (max-width: toEm(768)) {
+    @include adaptiveValue("font-size", 18, 16, 0, 768, 375);
+  }
+}
+```
+
+If nested media queries would overlap with the mixin output, restrict the interpolation range directly through the mixin arguments and keep the selector outside another width media query:
+
+```scss
+.title {
+  @include adaptiveValue("font-size", 18, 16, 0, 768, 375);
+}
+```
+
+Use the simpler version that produces non-overlapping final CSS in this project.
 
 ### When `clamp()` is allowed
 

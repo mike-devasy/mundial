@@ -1,85 +1,118 @@
-import { AR_PHONE_PREFIX, getPhoneLocalDigits } from './phone-utils.js';
+/** @format */
+
+import {
+  AR_COUNTRY_CODE,
+  AR_LOCAL_PHONE_LENGTH,
+  getPhoneLocalDigits,
+} from "./phone-utils.js"
+
+const PHONE_PREFIX = `+${AR_COUNTRY_CODE}`
+const PHONE_MASK_START = `${PHONE_PREFIX} (`
+
+const formatArPhone = (value = "") => {
+  const digits = getPhoneLocalDigits(value).slice(0, AR_LOCAL_PHONE_LENGTH)
+
+  if (!digits.length) {
+    return PHONE_PREFIX
+  }
+
+  const areaCode = digits.slice(0, 3)
+  const firstPart = digits.slice(3, 6)
+  const secondPart = digits.slice(6, 10)
+
+  let formatted = `${PHONE_MASK_START}${areaCode}`
+
+  if (areaCode.length === 3) {
+    formatted += ")"
+  }
+
+  if (firstPart.length) {
+    formatted += ` ${firstPart}`
+  }
+
+  if (secondPart.length) {
+    formatted += ` - ${secondPart}`
+  }
+
+  return formatted
+}
 
 export function initPhoneMask() {
-  const phoneInput = document.querySelector('input[name="phone"]');
+  const phoneInput = document.querySelector('input[name="phone"]')
 
-  if (!phoneInput) {
-    return;
+  if (!phoneInput || phoneInput.dataset.phoneMaskInitialized === "true") {
+    return
   }
 
-  if (typeof window.IMask !== 'function') {
-    return;
-  }
+  phoneInput.dataset.phoneMaskInitialized = "true"
+  phoneInput.value = PHONE_PREFIX
+  phoneInput.placeholder = ""
+  phoneInput.inputMode = "numeric"
+  phoneInput.autocomplete = "tel"
 
-  const mask = window.IMask(phoneInput, {
-    mask: '+{54} (000) 000 - 0000',
-  });
+  const prefixLength = PHONE_PREFIX.length
 
-  const getPrefixLength = () => AR_PHONE_PREFIX.length;
-
-  const clampCaretToPrefix = () => {
-    const prefixLength = getPrefixLength();
-
+  const moveCaretToEnd = () => {
     window.requestAnimationFrame(() => {
-      const selectionStart = phoneInput.selectionStart ?? prefixLength;
-      const selectionEnd = phoneInput.selectionEnd ?? prefixLength;
+      const position = phoneInput.value.length
+      phoneInput.setSelectionRange(position, position)
+    })
+  }
 
-      if (selectionStart < prefixLength || selectionEnd < prefixLength) {
-        phoneInput.setSelectionRange(prefixLength, prefixLength);
-      }
-    });
-  };
+  const moveCaretAfterPrefix = () => {
+    window.requestAnimationFrame(() => {
+      const position = Math.max(prefixLength, phoneInput.value.length)
+      phoneInput.setSelectionRange(position, position)
+    })
+  }
 
-  const hasLocalDigits = () => getPhoneLocalDigits(mask.value).length > 0;
+  phoneInput.addEventListener("focus", moveCaretAfterPrefix)
 
-  const ensurePrefixWhileFocused = () => {
-    if (document.activeElement !== phoneInput) {
-      return;
+  phoneInput.addEventListener("click", () => {
+    const selectionStart = phoneInput.selectionStart ?? 0
+
+    if (selectionStart < prefixLength) {
+      moveCaretAfterPrefix()
+    }
+  })
+
+  phoneInput.addEventListener("input", () => {
+    const localDigits = getPhoneLocalDigits(phoneInput.value)
+
+    phoneInput.value = formatArPhone(localDigits)
+
+    if (localDigits.length) {
+      moveCaretToEnd()
+    } else {
+      moveCaretAfterPrefix()
+    }
+  })
+
+  phoneInput.addEventListener("keydown", (event) => {
+    const selectionStart = phoneInput.selectionStart ?? prefixLength
+    const selectionEnd = phoneInput.selectionEnd ?? selectionStart
+    const localDigits = getPhoneLocalDigits(phoneInput.value)
+
+    const isDeletingPrefix =
+      (event.key === "Backspace" &&
+        selectionStart <= prefixLength &&
+        selectionEnd <= prefixLength) ||
+      (event.key === "Delete" && selectionStart < prefixLength)
+
+    if (isDeletingPrefix) {
+      event.preventDefault()
+      moveCaretAfterPrefix()
+      return
     }
 
-    if (!hasLocalDigits()) {
-      mask.value = AR_PHONE_PREFIX;
+    if (
+      (event.key === "Backspace" || event.key === "Delete") &&
+      localDigits.length <= 1
+    ) {
+      event.preventDefault()
+      phoneInput.value = PHONE_PREFIX
+      phoneInput.dispatchEvent(new Event("input", { bubbles: true }))
+      moveCaretAfterPrefix()
     }
-
-    clampCaretToPrefix();
-  };
-
-  phoneInput.addEventListener('focus', () => {
-    if (!mask.value.trim()) {
-      mask.value = AR_PHONE_PREFIX;
-      phoneInput.dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    clampCaretToPrefix();
-  });
-
-  phoneInput.addEventListener('blur', () => {
-    if (!hasLocalDigits()) {
-      mask.value = '';
-      phoneInput.dispatchEvent(new Event('input', { bubbles: true }));
-    }
-  });
-
-  phoneInput.addEventListener('click', clampCaretToPrefix);
-
-  phoneInput.addEventListener('input', () => {
-    ensurePrefixWhileFocused();
-  });
-
-  phoneInput.addEventListener('keyup', () => {
-    ensurePrefixWhileFocused();
-  });
-
-  phoneInput.addEventListener('keydown', (event) => {
-    const prefixLength = getPrefixLength();
-    const selectionStart = phoneInput.selectionStart ?? prefixLength;
-    const selectionEnd = phoneInput.selectionEnd ?? prefixLength;
-    const isPrefixSelected = selectionStart < prefixLength;
-
-    if ((event.key === 'Backspace' && selectionStart <= prefixLength && selectionEnd <= prefixLength)
-      || (event.key === 'Delete' && isPrefixSelected)) {
-      event.preventDefault();
-      phoneInput.setSelectionRange(prefixLength, prefixLength);
-    }
-  });
+  })
 }

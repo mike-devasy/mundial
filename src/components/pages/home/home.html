@@ -6,6 +6,7 @@
 <div class="page--home home">
 	<section class="hero" data-hero aria-labelledby="hero-title">
 		<picture class="hero__picture">
+			<source srcset="@img/hero/hero-image-small.png" media="(max-width: 480px)" />
 			<source srcset="@img/hero/hero-image-mobile.png" media="(max-width: 768px)" />
 			<source srcset="@img/hero/hero-image-tablet.png" media="(max-width: 992px)" />
 			<img class="hero__image" src="@img/hero/hero-image-desktop.png" alt="" />
@@ -94,29 +95,19 @@
 				<section class="hero__matches matches" aria-labelledby="matches-title">
 					<h2 class="matches__title" id="matches-title">Los partidos que se vienen:</h2>
 					<div class="matches__slider match-slider" aria-label="Próximos partidos">
-						<button class="match-slider__arrow match-slider__arrow--prev" type="button" aria-label="Partido anterior">
+						<button class="match-slider__arrow match-slider__arrow--prev" type="button" aria-label="Partido anterior" data-match-slider-prev>
 							<span></span>
 						</button>
-						<div class="match-slider__viewport">
-							<div class="match-slider__track">
-								<article class="match-slider__slide">
-									<img class="match-slider__image" src="@img/cards/02.png" alt="Corea del Sur vs Chequia" />
-								</article>
-								<article class="match-slider__slide match-slider__slide--active">
-									<img class="match-slider__image" src="@img/cards/03.png" alt="Canadá vs Bosnia" />
-								</article>
-								<article class="match-slider__slide">
-									<img class="match-slider__image" src="@img/cards/04.png" alt="Estados Unidos vs Paraguay" />
-								</article>
-							</div>
+						<div class="match-slider__viewport" data-match-slider-viewport>
+							<div class="match-slider__track" data-match-slider-track></div>
 						</div>
-						<button class="match-slider__arrow match-slider__arrow--next" type="button" aria-label="Siguiente partido">
+						<button class="match-slider__arrow match-slider__arrow--next" type="button" aria-label="Siguiente partido" data-match-slider-next>
 							<span></span>
 						</button>
 					</div>
 				</section>
 
-				<button class="hero__cta" type="button">Conseguí tu bono y apostá</button>
+				<button class="hero__cta" type="button" data-fls-popup-link="popup">Conseguí tu bono y apostá</button>
 			</div>
 		</div>
 	</section>

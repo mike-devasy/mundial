@@ -560,6 +560,7 @@ body::after {
 	line-height: 1.2;
 	letter-spacing: -0.02em;
 	color: #c0c0c0;
+	font-weight: 300;
 }
 
 .check__text strong {
@@ -653,14 +654,14 @@ body::after {
 	// display:none !important;
 	border: 2px solid var(--button-color);
 	border-radius: 12px;
-	padding: var(--popup-bonus-card-padding);
+	padding: 20px 16px;
 	width: 100%;
 	color: var(--secondary);
 	background: var(--bg-input-color);
 	display: flex;
 	align-items: center;
 	gap: 16px;
-	margin-bottom: var(--popup-bonus-card-margin-bottom);
+	margin-bottom: 12px;
 	@media (max-width: toEm(1100)) {
 		display: grid;
 		grid-template-columns: 40px 1fr auto;
