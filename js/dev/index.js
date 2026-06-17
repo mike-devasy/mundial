@@ -525,789 +525,793 @@ function initPhoneMask() {
 	});
 }
 //#endregion
-//#region src/assets/img/cards/01.png?url
-var _01_default = "" + new URL("../assets/img/cards/01.png", import.meta.url).href;
+//#region src/assets/img/cards/01.webp?url
+var _01_default = "" + new URL("../assets/img/cards/01.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/02.png?url
-var _02_default = "" + new URL("../assets/img/cards/02.png", import.meta.url).href;
+//#region src/assets/img/cards/02.webp?url
+var _02_default = "" + new URL("../assets/img/cards/02.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/03.png?url
-var _03_default = "" + new URL("../assets/img/cards/03.png", import.meta.url).href;
+//#region src/assets/img/cards/03.webp?url
+var _03_default = "" + new URL("../assets/img/cards/03.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/04.png?url
-var _04_default = "" + new URL("../assets/img/cards/04.png", import.meta.url).href;
+//#region src/assets/img/cards/04.webp?url
+var _04_default = "" + new URL("../assets/img/cards/04.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/05.png?url
-var _05_default = "" + new URL("../assets/img/cards/05.png", import.meta.url).href;
+//#region src/assets/img/cards/05.webp?url
+var _05_default = "" + new URL("../assets/img/cards/05.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/06.png?url
-var _06_default = "" + new URL("../assets/img/cards/06.png", import.meta.url).href;
+//#region src/assets/img/cards/06.webp?url
+var _06_default = "" + new URL("../assets/img/cards/06.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/07.png?url
-var _07_default = "" + new URL("../assets/img/cards/07.png", import.meta.url).href;
+//#region src/assets/img/cards/07.webp?url
+var _07_default = "" + new URL("../assets/img/cards/07.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/08.png?url
-var _08_default = "" + new URL("../assets/img/cards/08.png", import.meta.url).href;
+//#region src/assets/img/cards/08.webp?url
+var _08_default = "" + new URL("../assets/img/cards/08.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/09.png?url
-var _09_default = "" + new URL("../assets/img/cards/09.png", import.meta.url).href;
+//#region src/assets/img/cards/09.webp?url
+var _09_default = "" + new URL("../assets/img/cards/09.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/10.png?url
-var _10_default = "" + new URL("../assets/img/cards/10.png", import.meta.url).href;
+//#region src/assets/img/cards/10.webp?url
+var _10_default = "" + new URL("../assets/img/cards/10.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/11.png?url
-var _11_default = "" + new URL("../assets/img/cards/11.png", import.meta.url).href;
+//#region src/assets/img/cards/11.webp?url
+var _11_default = "" + new URL("../assets/img/cards/11.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/12.png?url
-var _12_default = "" + new URL("../assets/img/cards/12.png", import.meta.url).href;
+//#region src/assets/img/cards/12.webp?url
+var _12_default = "" + new URL("../assets/img/cards/12.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/13.png?url
-var _13_default = "" + new URL("../assets/img/cards/13.png", import.meta.url).href;
+//#region src/assets/img/cards/13.webp?url
+var _13_default = "" + new URL("../assets/img/cards/13.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/14.png?url
-var _14_default = "" + new URL("../assets/img/cards/14.png", import.meta.url).href;
+//#region src/assets/img/cards/14.webp?url
+var _14_default = "" + new URL("../assets/img/cards/14.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/15.png?url
-var _15_default = "" + new URL("../assets/img/cards/15.png", import.meta.url).href;
+//#region src/assets/img/cards/15.webp?url
+var _15_default = "" + new URL("../assets/img/cards/15.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/16.png?url
-var _16_default = "" + new URL("../assets/img/cards/16.png", import.meta.url).href;
+//#region src/assets/img/cards/16.webp?url
+var _16_default = "" + new URL("../assets/img/cards/16.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/17.png?url
-var _17_default = "" + new URL("../assets/img/cards/17.png", import.meta.url).href;
+//#region src/assets/img/cards/17.webp?url
+var _17_default = "" + new URL("../assets/img/cards/17.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/18.png?url
-var _18_default = "" + new URL("../assets/img/cards/18.png", import.meta.url).href;
+//#region src/assets/img/cards/18.webp?url
+var _18_default = "" + new URL("../assets/img/cards/18.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/19.png?url
-var _19_default = "" + new URL("../assets/img/cards/19.png", import.meta.url).href;
+//#region src/assets/img/cards/19.webp?url
+var _19_default = "" + new URL("../assets/img/cards/19.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/20.png?url
-var _20_default = "" + new URL("../assets/img/cards/20.png", import.meta.url).href;
+//#region src/assets/img/cards/20.webp?url
+var _20_default = "" + new URL("../assets/img/cards/20.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/21.png?url
-var _21_default = "" + new URL("../assets/img/cards/21.png", import.meta.url).href;
+//#region src/assets/img/cards/21.webp?url
+var _21_default = "" + new URL("../assets/img/cards/21.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/22.png?url
-var _22_default = "" + new URL("../assets/img/cards/22.png", import.meta.url).href;
+//#region src/assets/img/cards/22.webp?url
+var _22_default = "" + new URL("../assets/img/cards/22.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/23.png?url
-var _23_default = "" + new URL("../assets/img/cards/23.png", import.meta.url).href;
+//#region src/assets/img/cards/23.webp?url
+var _23_default = "" + new URL("../assets/img/cards/23.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/24.png?url
-var _24_default = "" + new URL("../assets/img/cards/24.png", import.meta.url).href;
+//#region src/assets/img/cards/24.webp?url
+var _24_default = "" + new URL("../assets/img/cards/24.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/25.png?url
-var _25_default = "" + new URL("../assets/img/cards/25.png", import.meta.url).href;
+//#region src/assets/img/cards/25.webp?url
+var _25_default = "" + new URL("../assets/img/cards/25.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/26.png?url
-var _26_default = "" + new URL("../assets/img/cards/26.png", import.meta.url).href;
+//#region src/assets/img/cards/26.webp?url
+var _26_default = "" + new URL("../assets/img/cards/26.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/27.png?url
-var _27_default = "" + new URL("../assets/img/cards/27.png", import.meta.url).href;
+//#region src/assets/img/cards/27.webp?url
+var _27_default = "" + new URL("../assets/img/cards/27.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/28.png?url
-var _28_default = "" + new URL("../assets/img/cards/28.png", import.meta.url).href;
+//#region src/assets/img/cards/28.webp?url
+var _28_default = "" + new URL("../assets/img/cards/28.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/29.png?url
-var _29_default = "" + new URL("../assets/img/cards/29.png", import.meta.url).href;
+//#region src/assets/img/cards/29.webp?url
+var _29_default = "" + new URL("../assets/img/cards/29.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/30.png?url
-var _30_default = "" + new URL("../assets/img/cards/30.png", import.meta.url).href;
+//#region src/assets/img/cards/30.webp?url
+var _30_default = "" + new URL("../assets/img/cards/30.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/31.png?url
-var _31_default = "" + new URL("../assets/img/cards/31.png", import.meta.url).href;
+//#region src/assets/img/cards/31.webp?url
+var _31_default = "" + new URL("../assets/img/cards/31.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/32.png?url
-var _32_default = "" + new URL("../assets/img/cards/32.png", import.meta.url).href;
+//#region src/assets/img/cards/32.webp?url
+var _32_default = "" + new URL("../assets/img/cards/32.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/33.png?url
-var _33_default = "" + new URL("../assets/img/cards/33.png", import.meta.url).href;
+//#region src/assets/img/cards/33.webp?url
+var _33_default = "" + new URL("../assets/img/cards/33.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/34.png?url
-var _34_default = "" + new URL("../assets/img/cards/34.png", import.meta.url).href;
+//#region src/assets/img/cards/34.webp?url
+var _34_default = "" + new URL("../assets/img/cards/34.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/35.png?url
-var _35_default = "" + new URL("../assets/img/cards/35.png", import.meta.url).href;
+//#region src/assets/img/cards/35.webp?url
+var _35_default = "" + new URL("../assets/img/cards/35.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/36.png?url
-var _36_default = "" + new URL("../assets/img/cards/36.png", import.meta.url).href;
+//#region src/assets/img/cards/36.webp?url
+var _36_default = "" + new URL("../assets/img/cards/36.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/37.png?url
-var _37_default = "" + new URL("../assets/img/cards/37.png", import.meta.url).href;
+//#region src/assets/img/cards/37.webp?url
+var _37_default = "" + new URL("../assets/img/cards/37.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/38.png?url
-var _38_default = "" + new URL("../assets/img/cards/38.png", import.meta.url).href;
+//#region src/assets/img/cards/38.webp?url
+var _38_default = "" + new URL("../assets/img/cards/38.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/39.png?url
-var _39_default = "" + new URL("../assets/img/cards/39.png", import.meta.url).href;
+//#region src/assets/img/cards/39.webp?url
+var _39_default = "" + new URL("../assets/img/cards/39.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/40.png?url
-var _40_default = "" + new URL("../assets/img/cards/40.png", import.meta.url).href;
+//#region src/assets/img/cards/40.webp?url
+var _40_default = "" + new URL("../assets/img/cards/40.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/41.png?url
-var _41_default = "" + new URL("../assets/img/cards/41.png", import.meta.url).href;
+//#region src/assets/img/cards/41.webp?url
+var _41_default = "" + new URL("../assets/img/cards/41.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/42.png?url
-var _42_default = "" + new URL("../assets/img/cards/42.png", import.meta.url).href;
+//#region src/assets/img/cards/42.webp?url
+var _42_default = "" + new URL("../assets/img/cards/42.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/43.png?url
-var _43_default = "" + new URL("../assets/img/cards/43.png", import.meta.url).href;
+//#region src/assets/img/cards/43.webp?url
+var _43_default = "" + new URL("../assets/img/cards/43.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/44.png?url
-var _44_default = "" + new URL("../assets/img/cards/44.png", import.meta.url).href;
+//#region src/assets/img/cards/44.webp?url
+var _44_default = "" + new URL("../assets/img/cards/44.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/45.png?url
-var _45_default = "" + new URL("../assets/img/cards/45.png", import.meta.url).href;
+//#region src/assets/img/cards/45.webp?url
+var _45_default = "" + new URL("../assets/img/cards/45.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/46.png?url
-var _46_default = "" + new URL("../assets/img/cards/46.png", import.meta.url).href;
+//#region src/assets/img/cards/46.webp?url
+var _46_default = "" + new URL("../assets/img/cards/46.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/47.png?url
-var _47_default = "" + new URL("../assets/img/cards/47.png", import.meta.url).href;
+//#region src/assets/img/cards/47.webp?url
+var _47_default = "" + new URL("../assets/img/cards/47.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/48.png?url
-var _48_default = "" + new URL("../assets/img/cards/48.png", import.meta.url).href;
+//#region src/assets/img/cards/48.webp?url
+var _48_default = "" + new URL("../assets/img/cards/48.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/49.png?url
-var _49_default = "" + new URL("../assets/img/cards/49.png", import.meta.url).href;
+//#region src/assets/img/cards/49.webp?url
+var _49_default = "" + new URL("../assets/img/cards/49.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/50.png?url
-var _50_default = "" + new URL("../assets/img/cards/50.png", import.meta.url).href;
+//#region src/assets/img/cards/50.webp?url
+var _50_default = "" + new URL("../assets/img/cards/50.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/51.png?url
-var _51_default = "" + new URL("../assets/img/cards/51.png", import.meta.url).href;
+//#region src/assets/img/cards/51.webp?url
+var _51_default = "" + new URL("../assets/img/cards/51.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/52.png?url
-var _52_default = "" + new URL("../assets/img/cards/52.png", import.meta.url).href;
+//#region src/assets/img/cards/52.webp?url
+var _52_default = "" + new URL("../assets/img/cards/52.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/53.png?url
-var _53_default = "" + new URL("../assets/img/cards/53.png", import.meta.url).href;
+//#region src/assets/img/cards/53.webp?url
+var _53_default = "" + new URL("../assets/img/cards/53.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/54.png?url
-var _54_default = "" + new URL("../assets/img/cards/54.png", import.meta.url).href;
+//#region src/assets/img/cards/54.webp?url
+var _54_default = "" + new URL("../assets/img/cards/54.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/55.png?url
-var _55_default = "" + new URL("../assets/img/cards/55.png", import.meta.url).href;
+//#region src/assets/img/cards/55.webp?url
+var _55_default = "" + new URL("../assets/img/cards/55.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/56.png?url
-var _56_default = "" + new URL("../assets/img/cards/56.png", import.meta.url).href;
+//#region src/assets/img/cards/56.webp?url
+var _56_default = "" + new URL("../assets/img/cards/56.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/57.png?url
-var _57_default = "" + new URL("../assets/img/cards/57.png", import.meta.url).href;
+//#region src/assets/img/cards/57.webp?url
+var _57_default = "" + new URL("../assets/img/cards/57.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/58.png?url
-var _58_default = "" + new URL("../assets/img/cards/58.png", import.meta.url).href;
+//#region src/assets/img/cards/58.webp?url
+var _58_default = "" + new URL("../assets/img/cards/58.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/59.png?url
-var _59_default = "" + new URL("../assets/img/cards/59.png", import.meta.url).href;
+//#region src/assets/img/cards/59.webp?url
+var _59_default = "" + new URL("../assets/img/cards/59.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/60.png?url
-var _60_default = "" + new URL("../assets/img/cards/60.png", import.meta.url).href;
+//#region src/assets/img/cards/60.webp?url
+var _60_default = "" + new URL("../assets/img/cards/60.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/61.png?url
-var _61_default = "" + new URL("../assets/img/cards/61.png", import.meta.url).href;
+//#region src/assets/img/cards/61.webp?url
+var _61_default = "" + new URL("../assets/img/cards/61.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/62.png?url
-var _62_default = "" + new URL("../assets/img/cards/62.png", import.meta.url).href;
+//#region src/assets/img/cards/62.webp?url
+var _62_default = "" + new URL("../assets/img/cards/62.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/63.png?url
-var _63_default = "" + new URL("../assets/img/cards/63.png", import.meta.url).href;
+//#region src/assets/img/cards/63.webp?url
+var _63_default = "" + new URL("../assets/img/cards/63.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/64.png?url
-var _64_default = "" + new URL("../assets/img/cards/64.png", import.meta.url).href;
+//#region src/assets/img/cards/64.webp?url
+var _64_default = "" + new URL("../assets/img/cards/64.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/65.png?url
-var _65_default = "" + new URL("../assets/img/cards/65.png", import.meta.url).href;
+//#region src/assets/img/cards/65.webp?url
+var _65_default = "" + new URL("../assets/img/cards/65.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/66.png?url
-var _66_default = "" + new URL("../assets/img/cards/66.png", import.meta.url).href;
+//#region src/assets/img/cards/66.webp?url
+var _66_default = "" + new URL("../assets/img/cards/66.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/67.png?url
-var _67_default = "" + new URL("../assets/img/cards/67.png", import.meta.url).href;
+//#region src/assets/img/cards/67.webp?url
+var _67_default = "" + new URL("../assets/img/cards/67.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/68.png?url
-var _68_default = "" + new URL("../assets/img/cards/68.png", import.meta.url).href;
+//#region src/assets/img/cards/68.webp?url
+var _68_default = "" + new URL("../assets/img/cards/68.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/69.png?url
-var _69_default = "" + new URL("../assets/img/cards/69.png", import.meta.url).href;
+//#region src/assets/img/cards/69.webp?url
+var _69_default = "" + new URL("../assets/img/cards/69.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/70.png?url
-var _70_default = "" + new URL("../assets/img/cards/70.png", import.meta.url).href;
+//#region src/assets/img/cards/70.webp?url
+var _70_default = "" + new URL("../assets/img/cards/70.webp", import.meta.url).href;
 //#endregion
-//#region src/assets/img/cards/71.png?url
-var _71_default = "" + new URL("../assets/img/cards/71.png", import.meta.url).href;
+//#region src/assets/img/cards/71.webp?url
+var _71_default = "" + new URL("../assets/img/cards/71.webp", import.meta.url).href;
 //#endregion
 //#region src/components/pages/home/matches-data.js
 var cardImages = /* #__PURE__ */ Object.assign({
-	"../../../assets/img/cards/01.png": _01_default,
-	"../../../assets/img/cards/02.png": _02_default,
-	"../../../assets/img/cards/03.png": _03_default,
-	"../../../assets/img/cards/04.png": _04_default,
-	"../../../assets/img/cards/05.png": _05_default,
-	"../../../assets/img/cards/06.png": _06_default,
-	"../../../assets/img/cards/07.png": _07_default,
-	"../../../assets/img/cards/08.png": _08_default,
-	"../../../assets/img/cards/09.png": _09_default,
-	"../../../assets/img/cards/10.png": _10_default,
-	"../../../assets/img/cards/11.png": _11_default,
-	"../../../assets/img/cards/12.png": _12_default,
-	"../../../assets/img/cards/13.png": _13_default,
-	"../../../assets/img/cards/14.png": _14_default,
-	"../../../assets/img/cards/15.png": _15_default,
-	"../../../assets/img/cards/16.png": _16_default,
-	"../../../assets/img/cards/17.png": _17_default,
-	"../../../assets/img/cards/18.png": _18_default,
-	"../../../assets/img/cards/19.png": _19_default,
-	"../../../assets/img/cards/20.png": _20_default,
-	"../../../assets/img/cards/21.png": _21_default,
-	"../../../assets/img/cards/22.png": _22_default,
-	"../../../assets/img/cards/23.png": _23_default,
-	"../../../assets/img/cards/24.png": _24_default,
-	"../../../assets/img/cards/25.png": _25_default,
-	"../../../assets/img/cards/26.png": _26_default,
-	"../../../assets/img/cards/27.png": _27_default,
-	"../../../assets/img/cards/28.png": _28_default,
-	"../../../assets/img/cards/29.png": _29_default,
-	"../../../assets/img/cards/30.png": _30_default,
-	"../../../assets/img/cards/31.png": _31_default,
-	"../../../assets/img/cards/32.png": _32_default,
-	"../../../assets/img/cards/33.png": _33_default,
-	"../../../assets/img/cards/34.png": _34_default,
-	"../../../assets/img/cards/35.png": _35_default,
-	"../../../assets/img/cards/36.png": _36_default,
-	"../../../assets/img/cards/37.png": _37_default,
-	"../../../assets/img/cards/38.png": _38_default,
-	"../../../assets/img/cards/39.png": _39_default,
-	"../../../assets/img/cards/40.png": _40_default,
-	"../../../assets/img/cards/41.png": _41_default,
-	"../../../assets/img/cards/42.png": _42_default,
-	"../../../assets/img/cards/43.png": _43_default,
-	"../../../assets/img/cards/44.png": _44_default,
-	"../../../assets/img/cards/45.png": _45_default,
-	"../../../assets/img/cards/46.png": _46_default,
-	"../../../assets/img/cards/47.png": _47_default,
-	"../../../assets/img/cards/48.png": _48_default,
-	"../../../assets/img/cards/49.png": _49_default,
-	"../../../assets/img/cards/50.png": _50_default,
-	"../../../assets/img/cards/51.png": _51_default,
-	"../../../assets/img/cards/52.png": _52_default,
-	"../../../assets/img/cards/53.png": _53_default,
-	"../../../assets/img/cards/54.png": _54_default,
-	"../../../assets/img/cards/55.png": _55_default,
-	"../../../assets/img/cards/56.png": _56_default,
-	"../../../assets/img/cards/57.png": _57_default,
-	"../../../assets/img/cards/58.png": _58_default,
-	"../../../assets/img/cards/59.png": _59_default,
-	"../../../assets/img/cards/60.png": _60_default,
-	"../../../assets/img/cards/61.png": _61_default,
-	"../../../assets/img/cards/62.png": _62_default,
-	"../../../assets/img/cards/63.png": _63_default,
-	"../../../assets/img/cards/64.png": _64_default,
-	"../../../assets/img/cards/65.png": _65_default,
-	"../../../assets/img/cards/66.png": _66_default,
-	"../../../assets/img/cards/67.png": _67_default,
-	"../../../assets/img/cards/68.png": _68_default,
-	"../../../assets/img/cards/69.png": _69_default,
-	"../../../assets/img/cards/70.png": _70_default,
-	"../../../assets/img/cards/71.png": _71_default
+	"../../../assets/img/cards/01.webp": _01_default,
+	"../../../assets/img/cards/02.webp": _02_default,
+	"../../../assets/img/cards/03.webp": _03_default,
+	"../../../assets/img/cards/04.webp": _04_default,
+	"../../../assets/img/cards/05.webp": _05_default,
+	"../../../assets/img/cards/06.webp": _06_default,
+	"../../../assets/img/cards/07.webp": _07_default,
+	"../../../assets/img/cards/08.webp": _08_default,
+	"../../../assets/img/cards/09.webp": _09_default,
+	"../../../assets/img/cards/10.webp": _10_default,
+	"../../../assets/img/cards/11.webp": _11_default,
+	"../../../assets/img/cards/12.webp": _12_default,
+	"../../../assets/img/cards/13.webp": _13_default,
+	"../../../assets/img/cards/14.webp": _14_default,
+	"../../../assets/img/cards/15.webp": _15_default,
+	"../../../assets/img/cards/16.webp": _16_default,
+	"../../../assets/img/cards/17.webp": _17_default,
+	"../../../assets/img/cards/18.webp": _18_default,
+	"../../../assets/img/cards/19.webp": _19_default,
+	"../../../assets/img/cards/20.webp": _20_default,
+	"../../../assets/img/cards/21.webp": _21_default,
+	"../../../assets/img/cards/22.webp": _22_default,
+	"../../../assets/img/cards/23.webp": _23_default,
+	"../../../assets/img/cards/24.webp": _24_default,
+	"../../../assets/img/cards/25.webp": _25_default,
+	"../../../assets/img/cards/26.webp": _26_default,
+	"../../../assets/img/cards/27.webp": _27_default,
+	"../../../assets/img/cards/28.webp": _28_default,
+	"../../../assets/img/cards/29.webp": _29_default,
+	"../../../assets/img/cards/30.webp": _30_default,
+	"../../../assets/img/cards/31.webp": _31_default,
+	"../../../assets/img/cards/32.webp": _32_default,
+	"../../../assets/img/cards/33.webp": _33_default,
+	"../../../assets/img/cards/34.webp": _34_default,
+	"../../../assets/img/cards/35.webp": _35_default,
+	"../../../assets/img/cards/36.webp": _36_default,
+	"../../../assets/img/cards/37.webp": _37_default,
+	"../../../assets/img/cards/38.webp": _38_default,
+	"../../../assets/img/cards/39.webp": _39_default,
+	"../../../assets/img/cards/40.webp": _40_default,
+	"../../../assets/img/cards/41.webp": _41_default,
+	"../../../assets/img/cards/42.webp": _42_default,
+	"../../../assets/img/cards/43.webp": _43_default,
+	"../../../assets/img/cards/44.webp": _44_default,
+	"../../../assets/img/cards/45.webp": _45_default,
+	"../../../assets/img/cards/46.webp": _46_default,
+	"../../../assets/img/cards/47.webp": _47_default,
+	"../../../assets/img/cards/48.webp": _48_default,
+	"../../../assets/img/cards/49.webp": _49_default,
+	"../../../assets/img/cards/50.webp": _50_default,
+	"../../../assets/img/cards/51.webp": _51_default,
+	"../../../assets/img/cards/52.webp": _52_default,
+	"../../../assets/img/cards/53.webp": _53_default,
+	"../../../assets/img/cards/54.webp": _54_default,
+	"../../../assets/img/cards/55.webp": _55_default,
+	"../../../assets/img/cards/56.webp": _56_default,
+	"../../../assets/img/cards/57.webp": _57_default,
+	"../../../assets/img/cards/58.webp": _58_default,
+	"../../../assets/img/cards/59.webp": _59_default,
+	"../../../assets/img/cards/60.webp": _60_default,
+	"../../../assets/img/cards/61.webp": _61_default,
+	"../../../assets/img/cards/62.webp": _62_default,
+	"../../../assets/img/cards/63.webp": _63_default,
+	"../../../assets/img/cards/64.webp": _64_default,
+	"../../../assets/img/cards/65.webp": _65_default,
+	"../../../assets/img/cards/66.webp": _66_default,
+	"../../../assets/img/cards/67.webp": _67_default,
+	"../../../assets/img/cards/68.webp": _68_default,
+	"../../../assets/img/cards/69.webp": _69_default,
+	"../../../assets/img/cards/70.webp": _70_default,
+	"../../../assets/img/cards/71.webp": _71_default
 });
-var getCardImage = (fileName) => cardImages[`../../../assets/img/cards/${fileName}`];
+var getCardImage = (fileName) => {
+	const image = cardImages[`../../../assets/img/cards/${fileName}`];
+	if (!image) throw new Error(`Missing match card image mapping: ${fileName}`);
+	return image;
+};
 var matches = [
 	[
 		"2026-06-11-mex-rsa",
 		"2026-06-11",
-		"01.png",
+		"01.webp",
 		["México", "MEX"],
 		["Sudáfrica", "RSA"]
 	],
 	[
 		"2026-06-12-kor-cze",
 		"2026-06-12",
-		"02.png",
+		"02.webp",
 		["Corea del Sur", "KOR"],
 		["Chequia", "CZE"]
 	],
 	[
 		"2026-06-12-can-bih",
 		"2026-06-12",
-		"03.png",
+		"03.webp",
 		["Canadá", "CAN"],
 		["Bosnia", "BIH"]
 	],
 	[
 		"2026-06-13-usa-par",
 		"2026-06-13",
-		"04.png",
+		"04.webp",
 		["Estados Unidos", "USA"],
 		["Paraguay", "PAR"]
 	],
 	[
 		"2026-06-13-qat-sui",
 		"2026-06-13",
-		"05.png",
+		"05.webp",
 		["Catar", "QAT"],
 		["Suiza", "SUI"]
 	],
 	[
 		"2026-06-14-bra-mar",
 		"2026-06-14",
-		"06.png",
+		"06.webp",
 		["Brasil", "BRA"],
 		["Marruecos", "MAR"]
 	],
 	[
 		"2026-06-14-hai-sco",
 		"2026-06-14",
-		"07.png",
+		"07.webp",
 		["Haití", "HAI"],
 		["Escocia", "SCO"]
 	],
 	[
 		"2026-06-14-aus-tur",
 		"2026-06-14",
-		"08.png",
+		"08.webp",
 		["Australia", "AUS"],
 		["Turquía", "TUR"]
 	],
 	[
 		"2026-06-14-ger-cuw",
 		"2026-06-14",
-		"09.png",
+		"09.webp",
 		["Alemania", "GER"],
 		["Curazao", "CUW"]
 	],
 	[
 		"2026-06-14-ned-jpn",
 		"2026-06-14",
-		"10.png",
+		"10.webp",
 		["Países Bajos", "NED"],
 		["Japón", "JPN"]
 	],
 	[
 		"2026-06-15-civ-ecu",
 		"2026-06-15",
-		"11.png",
+		"11.webp",
 		["Costa de Marfil", "CIV"],
 		["Ecuador", "ECU"]
 	],
 	[
 		"2026-06-15-swe-tun",
 		"2026-06-15",
-		"12.png",
+		"12.webp",
 		["Suecia", "SWE"],
 		["Túnez", "TUN"]
 	],
 	[
 		"2026-06-15-esp-cpv",
 		"2026-06-15",
-		"13.png",
+		"13.webp",
 		["España", "ESP"],
 		["Cabo Verde", "CPV"]
 	],
 	[
 		"2026-06-15-bel-egy",
 		"2026-06-15",
-		"14.png",
+		"14.webp",
 		["Bélgica", "BEL"],
 		["Egipto", "EGY"]
 	],
 	[
 		"2026-06-16-ksa-uru",
 		"2026-06-16",
-		"15.png",
+		"15.webp",
 		["Arabia Saudí", "KSA"],
 		["Uruguay", "URU"]
 	],
 	[
 		"2026-06-16-irn-nzl",
 		"2026-06-16",
-		"16.png",
+		"16.webp",
 		["RI de Irán", "IRN"],
 		["Nueva Zelanda", "NZL"]
 	],
 	[
 		"2026-06-16-fra-sen",
 		"2026-06-16",
-		"17.png",
+		"17.webp",
 		["Francia", "FRA"],
 		["Senegal", "SEN"]
 	],
 	[
 		"2026-06-17-irq-nor",
 		"2026-06-17",
-		"18.png",
+		"18.webp",
 		["Irak", "IRQ"],
 		["Noruega", "NOR"]
 	],
 	[
 		"2026-06-17-arg-alg",
 		"2026-06-17",
-		"19.png",
+		"19.webp",
 		["Argentina", "ARG"],
 		["Argelia", "ALG"]
 	],
 	[
 		"2026-06-17-aut-jor",
 		"2026-06-17",
-		"20.png",
+		"20.webp",
 		["Austria", "AUT"],
 		["Jordania", "JOR"]
 	],
 	[
 		"2026-06-17-por-cod",
 		"2026-06-17",
-		"21.png",
+		"21.webp",
 		["Portugal", "POR"],
 		["RD Congo", "COD"]
 	],
 	[
 		"2026-06-17-eng-cro",
 		"2026-06-17",
-		"22.png",
+		"22.webp",
 		["Inglaterra", "ENG"],
 		["Croacia", "CRO"]
 	],
 	[
 		"2026-06-18-gha-pan",
 		"2026-06-18",
-		"23.png",
+		"23.webp",
 		["Ghana", "GHA"],
 		["Panamá", "PAN"]
 	],
 	[
 		"2026-06-18-uzb-col",
 		"2026-06-18",
-		"24.png",
+		"24.webp",
 		["Uzbekistán", "UZB"],
 		["Colombia", "COL"]
 	],
 	[
 		"2026-06-18-sui-bih",
 		"2026-06-18",
-		"25.png",
+		"25.webp",
 		["Suiza", "SUI"],
 		["Bosnia", "BIH"]
 	],
 	[
 		"2026-06-19-can-qat",
 		"2026-06-19",
-		"26.png",
+		"26.webp",
 		["Canadá", "CAN"],
 		["Catar", "QAT"]
 	],
 	[
 		"2026-06-19-mex-kor",
 		"2026-06-19",
-		"27.png",
+		"27.webp",
 		["México", "MEX"],
 		["Corea del Sur", "KOR"]
 	],
 	[
 		"2026-06-19-usa-aus",
 		"2026-06-19",
-		"28.png",
+		"28.webp",
 		["Estados Unidos", "USA"],
 		["Australia", "AUS"]
 	],
 	[
 		"2026-06-20-sco-mar",
 		"2026-06-20",
-		"29.png",
+		"29.webp",
 		["Escocia", "SCO"],
 		["Marruecos", "MAR"]
 	],
 	[
 		"2026-06-20-bra-hai",
 		"2026-06-20",
-		"30.png",
+		"30.webp",
 		["Brasil", "BRA"],
 		["Haití", "HAI"]
 	],
 	[
 		"2026-06-20-tur-par",
 		"2026-06-20",
-		"31.png",
+		"31.webp",
 		["Turquía", "TUR"],
 		["Paraguay", "PAR"]
 	],
 	[
 		"2026-06-20-ned-swe",
 		"2026-06-20",
-		"32.png",
+		"32.webp",
 		["Países Bajos", "NED"],
 		["Suecia", "SWE"]
 	],
 	[
 		"2026-06-20-ger-civ",
 		"2026-06-20",
-		"33.png",
+		"33.webp",
 		["Alemania", "GER"],
 		["Costa de Marfil", "CIV"]
 	],
 	[
 		"2026-06-21-ecu-cuw",
 		"2026-06-21",
-		"34.png",
+		"34.webp",
 		["Ecuador", "ECU"],
 		["Curazao", "CUW"]
 	],
 	[
 		"2026-06-21-tun-jpn",
 		"2026-06-21",
-		"35.png",
+		"35.webp",
 		["Túnez", "TUN"],
 		["Japón", "JPN"]
 	],
 	[
 		"2026-06-21-esp-ksa",
 		"2026-06-21",
-		"36.png",
+		"36.webp",
 		["España", "ESP"],
 		["Arabia Saudí", "KSA"]
 	],
 	[
 		"2026-06-21-bel-irn",
 		"2026-06-21",
-		"37.png",
+		"37.webp",
 		["Bélgica", "BEL"],
 		["RI de Irán", "IRN"]
 	],
 	[
 		"2026-06-22-uru-cpv",
 		"2026-06-22",
-		"38.png",
+		"38.webp",
 		["Uruguay", "URU"],
 		["Cabo Verde", "CPV"]
 	],
 	[
 		"2026-06-22-nzl-egy",
 		"2026-06-22",
-		"39.png",
+		"39.webp",
 		["Nueva Zelanda", "NZL"],
 		["Egipto", "EGY"]
 	],
 	[
 		"2026-06-22-arg-aut",
 		"2026-06-22",
-		"40.png",
+		"40.webp",
 		["Argentina", "ARG"],
 		["Austria", "AUT"]
 	],
 	[
 		"2026-06-23-fra-irq",
 		"2026-06-23",
-		"41.png",
+		"41.webp",
 		["Francia", "FRA"],
 		["Irak", "IRQ"]
 	],
 	[
 		"2026-06-23-nor-sen",
 		"2026-06-23",
-		"42.png",
+		"42.webp",
 		["Noruega", "NOR"],
 		["Senegal", "SEN"]
 	],
 	[
 		"2026-06-23-jor-alg",
 		"2026-06-23",
-		"43.png",
+		"43.webp",
 		["Jordania", "JOR"],
 		["Argelia", "ALG"]
 	],
 	[
 		"2026-06-23-por-uzb",
 		"2026-06-23",
-		"44.png",
+		"44.webp",
 		["Portugal", "POR"],
 		["Uzbekistán", "UZB"]
 	],
 	[
 		"2026-06-23-eng-gha",
 		"2026-06-23",
-		"45.png",
+		"45.webp",
 		["Inglaterra", "ENG"],
 		["Ghana", "GHA"]
 	],
 	[
 		"2026-06-24-pan-cro",
 		"2026-06-24",
-		"46.png",
+		"46.webp",
 		["Panamá", "PAN"],
 		["Croacia", "CRO"]
 	],
 	[
 		"2026-06-24-col-cod",
 		"2026-06-24",
-		"47.png",
+		"47.webp",
 		["Colombia", "COL"],
 		["RD Congo", "COD"]
 	],
 	[
 		"2026-06-24-sui-can",
 		"2026-06-24",
-		"48.png",
+		"48.webp",
 		["Suiza", "SUI"],
 		["Canadá", "CAN"]
 	],
 	[
 		"2026-06-24-bih-qat",
 		"2026-06-24",
-		"49.png",
+		"49.webp",
 		["Bosnia", "BIH"],
 		["Catar", "QAT"]
 	],
 	[
 		"2026-06-25-sco-bra",
 		"2026-06-25",
-		"50.png",
+		"50.webp",
 		["Escocia", "SCO"],
 		["Brasil", "BRA"]
 	],
 	[
 		"2026-06-25-mar-hai",
 		"2026-06-25",
-		"51.png",
+		"51.webp",
 		["Marruecos", "MAR"],
 		["Haití", "HAI"]
 	],
 	[
 		"2026-06-25-cze-mex",
 		"2026-06-25",
-		"52.png",
+		"52.webp",
 		["Chequia", "CZE"],
 		["México", "MEX"]
 	],
 	[
 		"2026-06-25-rsa-kor",
 		"2026-06-25",
-		"53.png",
+		"53.webp",
 		["Sudáfrica", "RSA"],
 		["Corea del Sur", "KOR"]
 	],
 	[
 		"2026-06-25-cuw-civ",
 		"2026-06-25",
-		"54.png",
+		"54.webp",
 		["Curazao", "CUW"],
 		["Costa de Marfil", "CIV"]
 	],
 	[
 		"2026-06-25-ecu-ger",
 		"2026-06-25",
-		"55.png",
+		"55.webp",
 		["Ecuador", "ECU"],
 		["Alemania", "GER"]
 	],
 	[
 		"2026-06-26-jpn-swe",
 		"2026-06-26",
-		"56.png",
+		"56.webp",
 		["Japón", "JPN"],
 		["Suecia", "SWE"]
 	],
 	[
 		"2026-06-26-tun-ned",
 		"2026-06-26",
-		"57.png",
+		"57.webp",
 		["Túnez", "TUN"],
 		["Países Bajos", "NED"]
 	],
 	[
 		"2026-06-26-tur-usa",
 		"2026-06-26",
-		"58.png",
+		"58.webp",
 		["Turquía", "TUR"],
 		["Estados Unidos", "USA"]
 	],
 	[
 		"2026-06-26-par-aus",
 		"2026-06-26",
-		"59.png",
+		"59.webp",
 		["Paraguay", "PAR"],
 		["Australia", "AUS"]
 	],
 	[
 		"2026-06-26-nor-fra",
 		"2026-06-26",
-		"60.png",
+		"60.webp",
 		["Noruega", "NOR"],
 		["Francia", "FRA"]
 	],
 	[
 		"2026-06-26-sen-irq",
 		"2026-06-26",
-		"61.png",
+		"61.webp",
 		["Senegal", "SEN"],
 		["Irak", "IRQ"]
 	],
 	[
 		"2026-06-27-cpv-ksa",
 		"2026-06-27",
-		"62.png",
+		"62.webp",
 		["Cabo Verde", "CPV"],
 		["Arabia Saudí", "KSA"]
 	],
 	[
 		"2026-06-27-uru-esp",
 		"2026-06-27",
-		"63.png",
+		"63.webp",
 		["Uruguay", "URU"],
 		["España", "ESP"]
 	],
 	[
 		"2026-06-27-egy-irn",
 		"2026-06-27",
-		"64.png",
+		"64.webp",
 		["Egipto", "EGY"],
 		["RI de Irán", "IRN"]
 	],
 	[
 		"2026-06-27-nzl-bel",
 		"2026-06-27",
-		"65.png",
+		"65.webp",
 		["Nueva Zelanda", "NZL"],
 		["Bélgica", "BEL"]
 	],
 	[
 		"2026-06-28-pan-eng",
 		"2026-06-28",
-		"66.png",
+		"66.webp",
 		["Panamá", "PAN"],
 		["Inglaterra", "ENG"]
 	],
 	[
 		"2026-06-28-cro-gha",
 		"2026-06-28",
-		"67.png",
+		"67.webp",
 		["Croacia", "CRO"],
 		["Ghana", "GHA"]
 	],
 	[
 		"2026-06-28-col-por",
 		"2026-06-28",
-		"68.png",
+		"68.webp",
 		["Colombia", "COL"],
 		["Portugal", "POR"]
 	],
 	[
 		"2026-06-28-cod-uzb",
 		"2026-06-28",
-		"69.png",
+		"69.webp",
 		["RD Congo", "COD"],
 		["Uzbekistán", "UZB"]
 	],
 	[
 		"2026-06-28-alg-aut",
 		"2026-06-28",
-		"70.png",
+		"70.webp",
 		["Argelia", "ALG"],
 		["Austria", "AUT"]
 	],
 	[
 		"2026-06-28-jor-arg",
 		"2026-06-28",
-		"71.png",
+		"71.webp",
 		["Jordania", "JOR"],
 		["Argentina", "ARG"]
 	]
