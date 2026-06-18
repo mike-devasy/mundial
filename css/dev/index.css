@@ -1242,7 +1242,7 @@ body::after {
     --footer-overlap: 2.75rem;
   }
   .hero__container {
-    padding-top: 5rem;
+    padding-top: 5.3125rem;
   }
   .hero__container {
     padding-bottom: 2.5625rem;
@@ -1251,7 +1251,7 @@ body::after {
     font-size: 1.5rem;
   }
   .hero__text {
-    margin-top: 1.25rem;
+    margin-top: 0.625rem;
   }
   .hero__text {
     padding-inline: 1.25rem;
@@ -1517,7 +1517,7 @@ body::after {
     --footer-overlap: clamp( 2.75rem , 0.6030534351125rem  +  9.1603053435vw , 5rem );
   }
   .hero__container {
-    padding-top: clamp( 5rem , 3.8072519084rem  +  5.0890585242vw , 6.25rem );
+    padding-top: clamp( 5.3125rem , 4.4179389313rem  +  3.8167938931vw , 6.25rem );
   }
   .hero__container {
     padding-bottom: clamp( 2.5625rem , 0.29627862595625rem  +  9.6692111959vw , 4.9375rem );
@@ -1526,7 +1526,7 @@ body::after {
     font-size: clamp( 1.5rem , 0.42652671755625rem  +  4.5801526718vw , 2.625rem );
   }
   .hero__text {
-    margin-top: clamp( 1.25rem , 1.01145038168125rem  +  1.0178117048vw , 1.5rem );
+    margin-top: clamp( 0.625rem , -0.209923664125rem  +  3.5623409669vw , 1.5rem );
   }
   .hero__text {
     padding-inline: clamp( 1.25rem , -1.25477099236875rem  +  10.6870229008vw , 3.875rem );
