@@ -1064,6 +1064,7 @@ body::after {
   font-size: 1.125rem;
   line-height: 1.2;
   letter-spacing: -0.02em;
+  text-align: left;
 }
 .bonus-card__text strong {
   color: var(--button-color);
@@ -1141,9 +1142,6 @@ body::after {
   }
 }
 @media (max-width: 62em) and (width < 48em){
-  .hero__container {
-    padding-top: 7.5rem;
-  }
   .hero__container {
     padding-bottom: 4rem;
   }
@@ -1244,7 +1242,7 @@ body::after {
     --footer-overlap: 2.75rem;
   }
   .hero__container {
-    padding-top: 7.25rem;
+    padding-top: 5rem;
   }
   .hero__container {
     padding-bottom: 2.5625rem;
@@ -1253,7 +1251,7 @@ body::after {
     font-size: 1.5rem;
   }
   .hero__text {
-    margin-top: 1.375rem;
+    margin-top: 1.25rem;
   }
   .hero__text {
     padding-inline: 1.25rem;
@@ -1262,10 +1260,10 @@ body::after {
     font-size: 1rem;
   }
   .hero__bonus {
-    margin-top: 1.9375rem;
+    margin-top: 1.25rem;
   }
   .hero__matches {
-    margin-top: 2.1875rem;
+    margin-top: 1.25rem;
   }
   .hero__cta {
     width: 20.625rem;
@@ -1375,9 +1373,6 @@ body::after {
 }
 @media (max-width: 62em) and (width >= 62em){
   .hero__container {
-    padding-top: 10.125rem;
-  }
-  .hero__container {
     padding-bottom: 5.25rem;
   }
   .hero__title {
@@ -1395,7 +1390,7 @@ body::after {
     --footer-overlap: 5rem;
   }
   .hero__container {
-    padding-top: 9.125rem;
+    padding-top: 6.25rem;
   }
   .hero__container {
     padding-bottom: 4.9375rem;
@@ -1522,7 +1517,7 @@ body::after {
     --footer-overlap: clamp( 2.75rem , 0.6030534351125rem  +  9.1603053435vw , 5rem );
   }
   .hero__container {
-    padding-top: clamp( 7.25rem , 5.46087786259375rem  +  7.6335877863vw , 9.125rem );
+    padding-top: clamp( 5rem , 3.8072519084rem  +  5.0890585242vw , 6.25rem );
   }
   .hero__container {
     padding-bottom: clamp( 2.5625rem , 0.29627862595625rem  +  9.6692111959vw , 4.9375rem );
@@ -1531,7 +1526,7 @@ body::after {
     font-size: clamp( 1.5rem , 0.42652671755625rem  +  4.5801526718vw , 2.625rem );
   }
   .hero__text {
-    margin-top: clamp( 1.375rem , 1.2557251908375rem  +  0.5089058524vw , 1.5rem );
+    margin-top: clamp( 1.25rem , 1.01145038168125rem  +  1.0178117048vw , 1.5rem );
   }
   .hero__text {
     padding-inline: clamp( 1.25rem , -1.25477099236875rem  +  10.6870229008vw , 3.875rem );
@@ -1540,10 +1535,10 @@ body::after {
     font-size: clamp( 1rem , 0.76145038168125rem  +  1.0178117048vw , 1.25rem );
   }
   .hero__bonus {
-    margin-top: clamp( 1.9375rem , 1.28148854961875rem  +  2.7989821883vw , 2.625rem );
+    margin-top: clamp( 1.25rem , -0.0620229007625rem  +  5.5979643766vw , 2.625rem );
   }
   .hero__matches {
-    margin-top: clamp( 2.1875rem , 1.5911259542rem  +  2.5445292621vw , 2.8125rem );
+    margin-top: clamp( 1.25rem , -0.24093511450625rem  +  6.3613231552vw , 2.8125rem );
   }
   .hero__cta {
     width: clamp( 20.625rem , 12.03721374045625rem  +  36.641221374vw , 29.625rem );
@@ -1606,9 +1601,6 @@ body::after {
   }
 }
 @media (max-width: 62em) and (width >= 48em) and (width < 62em){
-  .hero__container {
-    padding-top: clamp( 7.5rem , -1.5rem  +  18.75vw , 10.125rem );
-  }
   .hero__container {
     padding-bottom: clamp( 4rem , -0.2857142857125rem  +  8.9285714286vw , 5.25rem );
   }
