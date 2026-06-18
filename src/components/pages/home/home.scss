@@ -76,8 +76,9 @@ body {
 		z-index: 1;
 		width: 100%;
 		min-height: calc(100svh - toRem(84));
-		// @include adaptiveValue("padding-top", 154, 110, 0, 1920, 992);
+		
 		padding-top: 100px;
+		// @include adaptiveValue("padding-top", 100, 50, 768, 375);
 		@include adaptiveValue("padding-bottom", 82, 58, 0, 1920, 992);
 	}
 
@@ -363,7 +364,7 @@ margin-top: 10px;
 
 		&__container {
 			min-height: calc(100svh - toRem(84));
-			@include adaptiveValue("padding-top", 162, 120, 0, 992, 768);
+			// @include adaptiveValue("padding-top", 162, 100, 0, 992, 768);
 			@include adaptiveValue("padding-bottom", 84, 64, 0, 992, 768);
 		}
 
@@ -403,7 +404,7 @@ margin-top: 10px;
 
 		&__container {
 			min-height: auto;
-			@include adaptiveValue("padding-top", 146, 116, 0, 768, 375);
+			@include adaptiveValue("padding-top", 100, 85, 0, 768, 375);
 			@include adaptiveValue("padding-bottom", 79, 41, 0, 768, 375);
 		}
 
@@ -414,24 +415,22 @@ margin-top: 10px;
 
 		&__text {
 			max-width: toRem(650);
-			@include adaptiveValue("margin-top", 24, 22, 0, 768, 375);
+			@include adaptiveValue("margin-top", 24, 10, 0, 768, 375);
 			@include adaptiveValue("padding-inline", 62, 20, 0, 768, 375);
 			@include adaptiveValue("font-size", 20, 16, 0, 768, 375);
 			line-height: 1.32;
 		}
 
 		&__bonus {
-			@include adaptiveValue("margin-top", 42, 31, 0, 768, 375);
+			@include adaptiveValue("margin-top", 42, 20, 0, 768, 375);
 		}
 
 		&__matches {
-			@include adaptiveValue("margin-top", 45, 35, 0, 768, 375);
+			@include adaptiveValue("margin-top", 45, 20, 0, 768, 375);
 		}
 
 		&__cta {
-			// width: calc(100% - toRem(40));
 			@include adaptiveValue("width", 474, 330, 0, 768, 375);
-			// max-width: toRem(474);
 			@include adaptiveValue("margin-top", 40, 33, 0, 768, 375);
 			border-radius: toRem(8);
 			@include adaptiveValue("font-size", 20, 16, 0, 768, 375);
@@ -480,7 +479,7 @@ margin-top: 10px;
 			min-height: toRem(59);
 
 	 }
-
+ 
 	.match-slider {
 		&__track {
 			gap: toRem(17);

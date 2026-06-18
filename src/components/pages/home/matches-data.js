@@ -186,6 +186,13 @@ const rawMatches = [
     ["Colombia", "COL"],
   ],
   [
+    "2026-06-18-cze-rsa",
+    "2026-06-18T13:00:00-03:00",
+    "cze-rsa.webp",
+    ["Chequia", "CZE"],
+    ["Sudáfrica", "RSA"],
+  ],
+  [
     "2026-06-18-sui-bih",
     "2026-06-18T16:00:00-03:00",
     "25.webp",
