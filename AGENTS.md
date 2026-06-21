@@ -1,5 +1,11 @@
 # Project instructions
 
+## Language
+
+- Always answer the user in Russian, unless the user explicitly asks for another language.
+- Code, file paths, class names, variable names, commit messages, and terminal commands may remain in English.
+- Reports, explanations, summaries, plans, and confirmations must be written in Russian.
+
 Use the `fls-landing-builder` skill.
 
 This is an FLS/Vite frontend project.
