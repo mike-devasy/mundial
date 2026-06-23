@@ -1213,8 +1213,7 @@ body::after {
     line-height: 1.42;
   }
   .hero__text {
-    max-width: 40.625rem;
-    line-height: 1.32;
+    display: none;
   }
   .hero__cta {
     border-radius: 0.5rem;
@@ -1258,15 +1257,6 @@ body::after {
   }
   .hero__title span:last-child {
     font-size: 1.25rem;
-  }
-  .hero__text {
-    margin-top: 0.625rem;
-  }
-  .hero__text {
-    padding-inline: 1.25rem;
-  }
-  .hero__text {
-    font-size: 1rem;
   }
   .hero__bonus {
     margin-top: 1.25rem;
@@ -1405,15 +1395,6 @@ body::after {
   .hero__title span:last-child {
     font-size: 2.625rem;
   }
-  .hero__text {
-    margin-top: 1.5rem;
-  }
-  .hero__text {
-    padding-inline: 3.875rem;
-  }
-  .hero__text {
-    font-size: 1.25rem;
-  }
   .hero__bonus {
     margin-top: 2.625rem;
   }
@@ -1529,15 +1510,6 @@ body::after {
   }
   .hero__title span:last-child {
     font-size: clamp( 1.25rem , -0.0620229007625rem  +  5.5979643766vw , 2.625rem );
-  }
-  .hero__text {
-    margin-top: clamp( 0.625rem , -0.209923664125rem  +  3.5623409669vw , 1.5rem );
-  }
-  .hero__text {
-    padding-inline: clamp( 1.25rem , -1.25477099236875rem  +  10.6870229008vw , 3.875rem );
-  }
-  .hero__text {
-    font-size: clamp( 1rem , 0.76145038168125rem  +  1.0178117048vw , 1.25rem );
   }
   .hero__bonus {
     margin-top: clamp( 1.25rem , -0.0620229007625rem  +  5.5979643766vw , 2.625rem );
