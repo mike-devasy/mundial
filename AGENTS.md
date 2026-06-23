@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Project instructions
 
 ## Language
@@ -175,9 +177,9 @@ Use the simpler version that produces non-overlapping final CSS in this project.
 
 ```scss
 .wrapper {
-	--mobile-hero-height: #{toRem(777)};
-	--mobile-footer-overlap: #{toRem(224)};
-	--mobile-footer-start: #{toRem(553)};
+  --mobile-hero-height: #{toRem(777)};
+  --mobile-footer-overlap: #{toRem(224)};
+  --mobile-footer-start: #{toRem(553)};
 }
 ```
 
@@ -189,7 +191,6 @@ margin-top: calc(var(--mobile-footer-overlap) * -1.6);
 ```
 
 - Instead, change the variable value itself in the relevant media query.
-
 
 ### Popup sizing on low-height desktop screens
 
@@ -265,11 +266,11 @@ If `.code-examples/` exists, use files inside it only as a style reference.
 Do not copy content blindly.
 Do not edit files inside `.code-examples/`.
 Use examples to understand:
-- BEM naming
-- SCSS nesting
-- adaptiveValue usage
-- page/custom component structure
-- vanilla JS style
+-BEM naming
+-SCSS nesting
+-adaptiveValue usage
+-page/custom component structure
+-vanilla JS style
 
 ## FLS image optimization and manual `<picture>`
 
@@ -307,7 +308,10 @@ Example manual markup:
 <picture class="hero__picture">
   <source srcset="@img/hero/hero-image-mobile.png" media="(max-width: 768px)" />
   <source srcset="@img/hero/hero-image-tablet.png" media="(max-width: 992px)" />
-  <source srcset="@img/hero/hero-image-laptop.png" media="(max-width: 1199.98px)" />
+  <source
+    srcset="@img/hero/hero-image-laptop.png"
+    media="(max-width: 1199.98px)"
+  />
   <img class="hero__image" src="@img/hero/hero-image-desktop.png" alt="" />
 </picture>
 ```
