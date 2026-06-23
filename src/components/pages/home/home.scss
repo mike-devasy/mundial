@@ -404,13 +404,16 @@ margin-top: 10px;
 
 		&__container {
 			min-height: auto;
-			@include adaptiveValue("padding-top", 100, 85, 0, 768, 375);
-			@include adaptiveValue("padding-bottom", 79, 41, 0, 768, 375);
+			@include adaptiveValue("padding-top", 100, 75, 0, 768, 480);
+			@include adaptiveValue("padding-bottom", 79, 41, 0, 768, 480);
 		}
 
-		&__title {
-			@include adaptiveValue("font-size", 42, 24, 0, 768, 375);
+		&__title{
+			@include adaptiveValue("font-size", 42, 28, 0, 768, 375);
 			line-height: 1.42;
+		}
+		&__title span:last-child{
+			@include adaptiveValue("font-size", 42, 20, 0, 768, 375);
 		}
 
 		&__text {
@@ -430,8 +433,8 @@ margin-top: 10px;
 		}
 
 		&__cta {
-			@include adaptiveValue("width", 474, 330, 0, 768, 375);
-			@include adaptiveValue("margin-top", 40, 33, 0, 768, 375);
+			@include adaptiveValue("width", 474, 315, 0, 768, 375);
+			@include adaptiveValue("margin-top", 40, 30, 0, 768, 480);
 			border-radius: toRem(8);
 			@include adaptiveValue("font-size", 20, 16, 0, 768, 375);
 		}
@@ -442,7 +445,7 @@ margin-top: 10px;
 		align-items: center;
 	@include adaptiveValue("gap", 20, 8, 0, 768, 375);
 		padding-inline: toRem(20);
-
+margin-top: 10px;
 		&__image {
 			width: min(100%, toRem(476));
 		}
@@ -475,9 +478,8 @@ margin-top: 10px;
 
 @media (max-width: toEm(480)) {
 	 .hero__cta{ 
-	@include adaptiveValue("width", 400, 330, 0, 480, 375);
-			min-height: toRem(59);
-
+min-height: toRem(59);
+font-size: 15px;
 	 }
  
 	.match-slider {

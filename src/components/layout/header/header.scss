@@ -15,6 +15,6 @@ width: 100%;
 	}
 
 			&__brand-image{
-			 @include adaptiveValue("width", 376, 277, 0, 768, 375); 
+			 @include adaptiveValue("width", 376, 220, 0, 768, 480); 
 }
 }
