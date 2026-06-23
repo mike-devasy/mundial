@@ -1420,15 +1420,22 @@ var initMatchSlider = () => {
 		if (nextUpcomingIndex >= 0) return nextUpcomingIndex;
 		return maxIndex;
 	};
+	const scrollViewportTo = (left, behavior = "smooth") => {
+		try {
+			viewport.scrollTo({
+				left,
+				behavior
+			});
+		} catch {
+			viewport.scrollLeft = left;
+		}
+	};
 	const centerSlide = (index, behavior = "smooth") => {
 		const slide = slides[index];
 		if (!slide) return;
 		const nextScrollLeft = slide.offsetLeft - (viewport.clientWidth - slide.offsetWidth) / 2;
 		isProgrammaticScroll = true;
-		viewport.scrollTo({
-			left: nextScrollLeft,
-			behavior
-		});
+		scrollViewportTo(nextScrollLeft, behavior);
 		window.setTimeout(() => {
 			isProgrammaticScroll = false;
 		}, 900);
