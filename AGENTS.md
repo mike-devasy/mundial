@@ -238,6 +238,16 @@ margin-top: calc(var(--mobile-footer-overlap) * -1.6);
   - before changing layout, first describe the concrete difference from the reference PNG;
   - if exact visual matching cannot be verified, do not perform a large refactor by eye.
 
+## SCSS unit preservation
+
+-Do not normalize existing CSS/SCSS units just for style consistency.
+-If an existing value is written in plain `px`, keep it as `px` unless the current task specifically requires changing that value.
+-Do not automatically convert existing `px` values to `toRem()`.
+-Do not run broad formatting/refactoring that changes units across the file.
+-When working in FLS/FLS-start projects, preserve manually corrected SCSS as the source of truth.
+-Use `toRem()`, `toEm()`, and `adaptiveValue()` for new or changed values only when it is technically useful and consistent with the surrounding code.
+-If a line is not part of the requested fix, do not touch its units, formatting, or value.
+
 ## JS
 
 - Use vanilla JavaScript unless the project already uses another approach.
