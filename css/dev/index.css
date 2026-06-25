@@ -1287,17 +1287,11 @@ body::after {
   .hero__cta {
     width: 19.6875rem;
   }
-  .hero__cta {
-    font-size: 1rem;
-  }
   .bonus-items {
     gap: 0.5rem;
   }
   .match-slider {
     --match-slider-slide-width: 19.6875rem;
-  }
-  .match-slider__track {
-    gap: 1rem;
   }
 }
 @media (max-width: 37.5em){
@@ -1383,11 +1377,6 @@ body::after {
     font-size: 1rem;
   }
 }
-@media (max-width: 480){
-  .matches__title {
-    font-size: 1.25rem;
-  }
-}
 @media (max-width: 90em) and (width >= 90em){
   .footer__container {
     padding-inline: 2.5rem;
@@ -1432,17 +1421,11 @@ body::after {
   .hero__cta {
     margin-top: 2.5rem;
   }
-  .hero__cta {
-    font-size: 1.25rem;
-  }
   .bonus-items {
     gap: 1.25rem;
   }
   .match-slider {
     --match-slider-slide-width: 29.625rem;
-  }
-  .match-slider__track {
-    gap: 1.5rem;
   }
 }
 @media (width > 48em) and (height <= 47.5em){
@@ -1492,18 +1475,36 @@ body::after {
   }
 }
 @media (min-width: 30.00125em) and (max-width: 48em) and (width >= 48em){
+  .hero__cta {
+    font-size: 1.25rem;
+  }
   .matches__title {
     font-size: 1.75rem;
   }
+  .match-slider__track {
+    gap: 1.5rem;
+  }
 }
 @media (min-width: 30.00125em) and (max-width: 48em) and (width >= 30em) and (width < 48em){
+  .hero__cta {
+    font-size: clamp( 1rem , 0.58333333333125rem  +  1.3888888889vw , 1.25rem );
+  }
   .matches__title {
     font-size: clamp( 1.5rem , 1.08333333333125rem  +  1.3888888889vw , 1.75rem );
   }
+  .match-slider__track {
+    gap: clamp( 1rem , 0.16666666666875rem  +  2.7777777778vw , 1.5rem );
+  }
 }
 @media (min-width: 30.00125em) and (max-width: 48em) and (width < 30em){
+  .hero__cta {
+    font-size: 1rem;
+  }
   .matches__title {
     font-size: 1.5rem;
+  }
+  .match-slider__track {
+    gap: 1rem;
   }
 }
 @media (max-width: 37.5em) and (width >= 23.4375em) and (width < 86.875em){
@@ -1570,17 +1571,11 @@ body::after {
   .hero__cta {
     width: clamp( 19.6875rem , 10.20515267175625rem  +  40.4580152672vw , 29.625rem );
   }
-  .hero__cta {
-    font-size: clamp( 1rem , 0.76145038168125rem  +  1.0178117048vw , 1.25rem );
-  }
   .bonus-items {
     gap: clamp( 0.5rem , -0.2156488549625rem  +  3.0534351145vw , 1.25rem );
   }
   .match-slider {
     --match-slider-slide-width: clamp( 19.6875rem , 10.20515267175625rem  +  40.4580152672vw , 29.625rem );
-  }
-  .match-slider__track {
-    gap: clamp( 1rem , 0.52290076335625rem  +  2.0356234097vw , 1.5rem );
   }
 }
 @media (min-width: 48.00125em) and (max-width: 81.25em) and (min-height: 62.5em){
