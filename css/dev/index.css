@@ -288,7 +288,6 @@ body {
   z-index: 1;
   width: 100%;
   min-height: calc(100svh - 5.25rem);
-  padding-top: 6.25rem;
 }
 .hero__content {
   display: flex;
@@ -1223,11 +1222,12 @@ body::after {
     min-height: auto;
   }
   .hero__title {
-    line-height: 1.42;
+    line-height: 1.1;
   }
   .hero__text {
     max-width: 40.625rem;
-    line-height: 1.32;
+    margin-top: 0.625rem;
+    line-height: 1.2;
   }
   .hero__cta {
     border-radius: 0.5rem;
@@ -1235,11 +1235,9 @@ body::after {
   .bonus-items {
     flex-direction: column;
     align-items: center;
+    gap: 0.5rem;
     padding-inline: 1.25rem;
-    margin-top: 0.625rem;
-  }
-  .bonus-items__image {
-    width: min(100%, 29.75rem);
+    margin-top: 0rem;
   }
   .matches__title {
     max-width: 38.75rem;
@@ -1251,44 +1249,28 @@ body::after {
     display: none;
   }
 }
-@media (max-width: 48em) and (width < 30em){
+@media (width < 48em){
   .hero__container {
-    padding-top: 4.6875rem;
+    padding-top: 4.375rem;
   }
-  .hero__container {
-    padding-bottom: 2.5625rem;
+}
+@media (max-width: 48em) and (width < 30em){
+  .hero__title {
+    font-size: 1.75rem;
   }
   .hero__cta {
     margin-top: 1.875rem;
   }
 }
 @media (max-width: 48em) and (width < 23.4375em){
-  .hero__title {
-    font-size: 1.75rem;
-  }
-  .hero__title span:last-child {
-    font-size: 1.25rem;
-  }
-  .hero__text {
-    margin-top: 0.625rem;
-  }
-  .hero__text {
-    padding-inline: 1.25rem;
-  }
   .hero__text {
     font-size: 1rem;
-  }
-  .hero__bonus {
-    margin-top: 1.25rem;
-  }
-  .hero__matches {
-    margin-top: 1.25rem;
   }
   .hero__cta {
     width: 19.6875rem;
   }
-  .bonus-items {
-    gap: 0.5rem;
+  .bonus-items__image {
+    width: 20rem;
   }
   .match-slider {
     --match-slider-slide-width: 19.6875rem;
@@ -1387,33 +1369,35 @@ body::after {
     width: 27.5rem;
   }
 }
-@media (max-width: 48em) and (width >= 48em){
+@media (orientation: landscape) and (min-width: 68.75em) and (max-height: 37.5em){
   .hero__container {
-    padding-top: 6.25rem;
-  }
-  .hero__container {
-    padding-bottom: 4.9375rem;
+    padding-top: 4.6875rem;
   }
   .hero__title {
-    font-size: 2.625rem;
-  }
-  .hero__title span:last-child {
-    font-size: 2.625rem;
+    font-size: 2rem;
+    line-height: 1.1;
   }
   .hero__text {
-    margin-top: 1.5rem;
+    font-size: 1.125rem;
+    line-height: 1;
+    margin-top: 0.5rem;
   }
-  .hero__text {
-    padding-inline: 3.875rem;
+  .hero__matches {
+    margin-top: 1.25rem;
+  }
+  .match-slider__slide {
+    --match-slider-slide-width: 20rem;
+  }
+  .bonus-items__image {
+    width: mi;
+  }
+}
+@media (max-width: 48em) and (width >= 48em){
+  .hero__title {
+    font-size: 2.25rem;
   }
   .hero__text {
     font-size: 1.25rem;
-  }
-  .hero__bonus {
-    margin-top: 2.625rem;
-  }
-  .hero__matches {
-    margin-top: 2.8125rem;
   }
   .hero__cta {
     width: 29.625rem;
@@ -1421,11 +1405,13 @@ body::after {
   .hero__cta {
     margin-top: 2.5rem;
   }
-  .bonus-items {
-    gap: 1.25rem;
-  }
   .match-slider {
     --match-slider-slide-width: 29.625rem;
+  }
+}
+@media (max-width: 48em) and (width >= 23.4375em){
+  .bonus-items__image {
+    width: 29.75rem;
   }
 }
 @media (width > 48em) and (height <= 47.5em){
@@ -1535,47 +1521,33 @@ body::after {
     margin-top: 1.25rem;
   }
 }
-@media (max-width: 48em) and (width >= 30em) and (width < 48em){
+@media (width >= 48em) and (width < 85em){
   .hero__container {
-    padding-top: clamp( 4.6875rem , 2.08333333333125rem  +  8.6805555556vw , 6.25rem );
+    padding-top: clamp( 4.375rem , 1.94256756756875rem  +  5.0675675676vw , 6.25rem );
   }
-  .hero__container {
-    padding-bottom: clamp( 2.5625rem , -1.39583333333125rem  +  13.1944444444vw , 4.9375rem );
+}
+@media (max-width: 48em) and (width >= 30em) and (width < 48em){
+  .hero__title {
+    font-size: clamp( 1.75rem , 0.91666666666875rem  +  2.7777777778vw , 2.25rem );
   }
   .hero__cta {
     margin-top: clamp( 1.875rem , 0.83333333333125rem  +  3.4722222222vw , 2.5rem );
   }
 }
 @media (max-width: 48em) and (width >= 23.4375em) and (width < 48em){
-  .hero__title {
-    font-size: clamp( 1.75rem , 0.915076335875rem  +  3.5623409669vw , 2.625rem );
-  }
-  .hero__title span:last-child {
-    font-size: clamp( 1.25rem , -0.0620229007625rem  +  5.5979643766vw , 2.625rem );
-  }
-  .hero__text {
-    margin-top: clamp( 0.625rem , -0.209923664125rem  +  3.5623409669vw , 1.5rem );
-  }
-  .hero__text {
-    padding-inline: clamp( 1.25rem , -1.25477099236875rem  +  10.6870229008vw , 3.875rem );
-  }
   .hero__text {
     font-size: clamp( 1rem , 0.76145038168125rem  +  1.0178117048vw , 1.25rem );
-  }
-  .hero__bonus {
-    margin-top: clamp( 1.25rem , -0.0620229007625rem  +  5.5979643766vw , 2.625rem );
-  }
-  .hero__matches {
-    margin-top: clamp( 1.25rem , -0.24093511450625rem  +  6.3613231552vw , 2.8125rem );
   }
   .hero__cta {
     width: clamp( 19.6875rem , 10.20515267175625rem  +  40.4580152672vw , 29.625rem );
   }
-  .bonus-items {
-    gap: clamp( 0.5rem , -0.2156488549625rem  +  3.0534351145vw , 1.25rem );
-  }
   .match-slider {
     --match-slider-slide-width: clamp( 19.6875rem , 10.20515267175625rem  +  40.4580152672vw , 29.625rem );
+  }
+}
+@media (max-width: 48em) and (width >= 23.4375em) and (width < 23.4375em){
+  .bonus-items__image {
+    width: clamp( 20rem , calc(-infinity)px  +  calc(infinity)vw , 29.75rem );
   }
 }
 @media (min-width: 48.00125em) and (max-width: 81.25em) and (min-height: 62.5em){
@@ -1587,11 +1559,6 @@ body::after {
   }
   .hero__container {
     min-height: 85svh;
-  }
-}
-@media (min-width: 48.00125em) and (max-width: 62em){
-  .wrapper {
-    --footer-overlap: 10rem;
   }
 }
 @media (max-width: 57.5em) and (width >= 48.125em) and (width < 57.5em){
@@ -1619,26 +1586,6 @@ body::after {
     right: clamp( 2rem , 0.53017241379375rem  +  2.3706896552vw , 3.375rem );
   }
 }
-@media screen and (min-width: 68.75em) and (min-height: 41.3125em){
-  .hero__container {
-    padding-top: 4.6875rem;
-  }
-  .hero__title {
-    font-size: 2rem;
-    line-height: 1.1;
-  }
-  .hero__text {
-    font-size: 1.125rem;
-    line-height: 1;
-    margin-top: 0.5rem;
-  }
-  .hero__matches {
-    margin-top: 1.25rem;
-  }
-  .match-slider__slide {
-    --match-slider-slide-width: 25rem;
-  }
-}
 @media (width >= 68.75em) and (width < 85em){
   .header__brand-image {
     width: clamp( 13.75rem , -27.5rem  +  60vw , 23.5rem );
@@ -1657,6 +1604,9 @@ body::after {
 @media (width >= 85em){
   .header__brand-image {
     width: 23.5rem;
+  }
+  .hero__container {
+    padding-top: 6.25rem;
   }
 }
 @media (width >= 86.875em){
