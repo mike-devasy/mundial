@@ -1336,7 +1336,7 @@ body::after {
     min-height: 3.6875rem;
     font-size: 0.9375rem;
   }
-  .matches__title {
+  .matches__title.matches-title {
     font-size: 1rem;
   }
   .match-slider__track {
