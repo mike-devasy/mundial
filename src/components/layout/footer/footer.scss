@@ -2,17 +2,13 @@
  
 background-color: var(--bgColor);
 	color: rgba(255, 255, 255, 0.5);
- 	position: relative;
+	position: relative;
 	z-index: 5;
-	margin-top: calc(var(--footer-overlap, 0px) * -0.3);
+	margin-top: calc(var(--footer-overlap, 0px) * -1);
 
- 	// @media (max-width: toEm(768)) {
- 
-	// 	min-height: max(
-	// 		256px,
-	// 		calc(100dvh - 553px)
-	// 	);
-	// }
+	@media (max-width: toEm(480)) {
+		margin-top: calc(var(--footer-overlap, 0px) * -0.3);
+	}
  
 	&__container {
 		display: flex;
@@ -106,10 +102,6 @@ background-color: var(--bgColor);
 		line-height: 1.2;
 		text-align: center;
 	}
-	@media (min-width: toEm(820)) and (max-width: toEm(1100)) and (min-height: toEm(1000)) {
-		margin-top: calc(var(--footer-overlap, 0px) * -1);
-	}
-
 	@media (max-width: toEm(768)) {
 		&__licenses {
 			gap: 10px;
@@ -136,4 +128,5 @@ background-color: var(--bgColor);
 			text-align: left;
 		}
 	}
+
 }

@@ -2,6 +2,7 @@
 	min-height: 100svh;
 	background: var(--bgColor);
 	color: var(--secondary);
+	
 }
 
 html,
@@ -15,6 +16,7 @@ body {
 }
 
 .wrapper {
+ 
 	--footer-overlap: #{toRem(34)};
 
 	min-height: 100dvh;
@@ -28,7 +30,7 @@ body {
 	overflow: hidden;
 	min-height: calc(100svh - toRem(84));
 	color: var(--secondary);
-
+ 
 	&__picture {
 		position: absolute;
 		inset: 0;
@@ -41,11 +43,6 @@ body {
 			inset: 0;
 			pointer-events: none;
 		}
-
-		&::before {
-			// background: rgba(5, 8, 24, 0.33);
-		}
-
 		&::after {
 			inset: auto 0 0;
 			height: 42%;
@@ -77,8 +74,7 @@ body {
 		width: 100%;
 		min-height: calc(100svh - toRem(84));
 		
-		padding-top: 100px;
-		// @include adaptiveValue("padding-top", 100, 50, 768, 375);
+@include adaptiveValue("padding-top", 100, 70, 0, $maxWidthContainer, 768);
 		@include adaptiveValue("padding-bottom", 82, 58, 0, 1920, 992);
 	}
 
@@ -117,11 +113,7 @@ body {
 		font-size: toRem(20);
 		line-height: 1.35;
 		text-shadow: 0 3px 14px rgba(0, 0, 0, 0.45);
- 
 	}
-
- 
-
 	&__matches {
 		@include adaptiveValue("margin-top", 43, 36, 0, 1920, 992);
 	}
@@ -133,7 +125,6 @@ body {
 		width: min(100%, toRem(474));
 		min-height: toRem(72);
 		@include adaptiveValue("margin-top", 39, 36, 0, 1920, 992);
-		// padding-inline: toRem(24);
 		border-radius: toRem(10);
 		background: var(--button-color);
 		color: #ffffff;
@@ -185,18 +176,86 @@ body {
 }
 
 .bonus-items {
+	position: relative;
 	display: flex;
 	justify-content: center;
 	gap: toRem(6);
 	width: 100%;
-margin-top: 10px;
+	margin-top: 24px;
+	overflow: visible;
+
+	&__item {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex: 0 1 toRem(440);
+		height: toRem(107);
+		padding: toRem(12) toRem(18) toRem(20) toRem(22);
+		border-radius: toRem(16);
+		overflow: visible;
+		background:
+			linear-gradient(90deg, rgba(8, 10, 25, 0.98) 0%, rgba(15, 17, 38, 0.94) 58%, rgba(8, 10, 25, 0.98) 100%);
+		box-shadow: 0 toRem(14) toRem(28) rgba(0, 0, 0, 0.35);
+	}
+
+	&__content {
+		position: relative;
+		z-index: 2;
+		min-width: 0;
+		text-align: left;
+	}
+
+	&__value {
+		color: var(--orangeColor);
+		font-family: var(--secondaryFont);
+@include adaptiveValue("font-size", 36, 24);
+		font-style: italic;
+		font-weight: 900;
+		line-height: 1;
+		text-transform: uppercase;
+		text-shadow: 0 toRem(4) toRem(14) rgba(0, 0, 0, 0.55);
+	}
+
+	&__label {
+		margin-top: toRem(5);
+		color: var(--secondary);
+		font-family: var(--secondaryFont);
+	@include adaptiveValue("font-size", 20, 14);
+		font-weight: 800;
+		line-height: 1.1;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+	&__image-wrap {
+		position: absolute;
+		z-index: 1;
+		right: 0;
+		bottom: 0;
+		width: toRem(147);
+		height: toRem(122);
+		pointer-events: none;
+	}
+
 	&__image {
 		display: block;
-		width: min(100%, toRem(440));
-		height: auto;
+		width: 100%;
+		height: 100%;
 		object-fit: contain;
-		@media (max-width: toEm(920)){
-			@include adaptiveValue("width", 440, 370, 0, 920, 770);  
+	}
+
+	&__item--deposit {
+		.bonus-items__image-wrap {
+			right: 0;
+			bottom: 0;
+		}
+	}
+
+	&__item--freebets {
+		.bonus-items__image-wrap {
+			right: 0;
+			bottom: 0;
 		}
 	}
 }
@@ -214,9 +273,6 @@ margin-top: 10px;
 		line-height: 1.4;
 		text-transform: uppercase;
 		text-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
-		@media (max-width:$mobileSmall){
-			 font-size: 20px; 
-		}
 	}
 
 	&__slider {
@@ -345,49 +401,137 @@ margin-top: 10px;
 		}
 	}
 }
-
-@media (min-width: toEm(768.02)) and (max-width: toEm(992)) {
+@media (min-width: toEm(768.02)) and (max-width: toEm(1300)) and (min-height: toEm(1000)) {
 	.wrapper {
-		--footer-overlap: #{toRem(160)};
+		--footer-overlap: #{toRem(134)};
 	}
-}
-
-@media (min-width: toEm(820)) and (max-width: toEm(1100)) and (min-height: toEm(1000)) {
-	.wrapper {
-		--footer-overlap: #{toRem(260)};
-	}
-}
-
-@media (max-width: toEm(992)) {
+ 
 	.hero {
-		min-height: calc(100svh - toRem(84));
+		min-height: 85svh;
 
 		&__container {
-			min-height: calc(100svh - toRem(84));
-			// @include adaptiveValue("padding-top", 162, 100, 0, 992, 768);
-			@include adaptiveValue("padding-bottom", 84, 64, 0, 992, 768);
-		}
-
-		&__title {
-			@include adaptiveValue("font-size", 42, 40, 0, 992, 768);
-		}
-
-		&__text {
-			max-width: toRem(928);
-			padding-inline: toRem(30);
-			@include adaptiveValue("font-size", 22, 20, 0, 992, 768);
-		}
-
-		&__cta {
-			@include adaptiveValue("font-size", 24, 22, 0, 992, 768);
+			min-height: 85svh;
 		}
 	}
 }
 
-@media (max-width: toEm(768)) {
-	.wrapper {
-		@include adaptiveValue("--footer-overlap", 80, 44, 0, 768, 375);
+@media (min-width: toEm(1920)) and (min-height: toEm(1100)) {
+	.hero {
+		&__container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding-top: toRem(84);
+			padding-bottom: toRem(84);
+		}
 	}
+}
+@media (orientation: landscape) and (min-width: toEm(1100)) and (max-height: toEm(600)){
+	   .hero{
+	&__container{
+		padding-top: 75px;
+	}
+	&__title{
+		font-size: 32px;
+		line-height: 1.1;
+	}  
+&__text{
+		font-size: 18px;
+		line-height: 1;
+		margin-top: 8px;
+	}
+	&__matches{
+		margin-top: 20px;
+	}
+ }
+ .match-slider__slide{
+	--match-slider-slide-width: 320px;
+ }
+ .bonus-items__item{
+	flex-basis: toRem(320);
+	height: toRem(94);
+}
+ .bonus-items__value{
+	font-size: toRem(28);
+}
+ .bonus-items__label{
+	font-size: toRem(12);
+}
+ .bonus-items__image-wrap{
+	width: toRem(122);
+ }
+}
+
+@media portrait and (min-width: toEm(768)) and (max-width: toEm(1300)) and (min-height: toEm(661)) {
+ .hero{
+	&__container{
+		padding-top: 90px;
+	}
+	&__title{
+		font-size: 36px;
+		line-height: 1.1;
+	}  
+&__text{
+		font-size: 18px;
+		line-height: 1;
+		margin-top: 8px;
+	}
+	&__matches{
+		margin-top: 20px;
+	}
+ }
+}
+@media (max-width: toEm(1100)) and (max-height: toEm(660)) {
+ .hero{
+	&__container{
+		padding-top: 65px;
+	}
+	&__title{
+		font-size: 28px;
+		line-height: 1.1;
+	}	
+	&__text{
+		font-size: 16px;
+		line-height: 1;
+		margin-top: 8px;
+	}
+	&__matches{
+		margin-top: 10px;
+	}
+	&__cta{
+		font-size: 18px;
+		width: min(100%, toRem(400));
+		min-height: 52px;
+	}
+ }
+.matches__title{
+	font-size: 20px;
+}
+
+.match-slider{
+	&__viewport{
+		padding-block: toRem(20);
+	}
+	&__slide{
+--match-slider-slide-width: #{toRem(370)};
+}
+}
+.bonus-items__item{
+	flex-basis: toRem(370);
+	height: toRem(104);
+}
+.bonus-items__value{
+	font-size: toRem(34);
+}
+.bonus-items__label{
+	font-size: toRem(14);
+}
+.bonus-items__image-wrap{
+	width: toRem(136);
+}
+}
+@media (max-width: toEm(768)) {
+ 
 
 	.hero {
 		min-height: auto;
@@ -404,60 +548,61 @@ margin-top: 10px;
 
 		&__container {
 			min-height: auto;
-			@include adaptiveValue("padding-top", 100, 75, 0, 768, 480);
-			@include adaptiveValue("padding-bottom", 79, 41, 0, 768, 480);
+			@include adaptiveValue("padding-top", 85, 75, 0, 768, 480);
 		}
 
 		&__title{
-			@include adaptiveValue("font-size", 42, 28, 0, 768, 375);
-			line-height: 1.42;
+			@include adaptiveValue("font-size", 36, 28, 0, 768, 480);
+			line-height: 1.2;
 		}
-		&__title span:last-child{
-			@include adaptiveValue("font-size", 42, 20, 0, 768, 375);
-		}
-
+ 
 		&__text {
 			max-width: toRem(650);
-			@include adaptiveValue("margin-top", 24, 10, 0, 768, 375);
-			@include adaptiveValue("padding-inline", 62, 20, 0, 768, 375);
+			margin-top: 10px;
 			@include adaptiveValue("font-size", 20, 16, 0, 768, 375);
-			line-height: 1.32;
+			line-height: 1.2;
 		}
-
-		&__bonus {
-			@include adaptiveValue("margin-top", 42, 20, 0, 768, 375);
-		}
-
 		&__matches {
-			@include adaptiveValue("margin-top", 45, 20, 0, 768, 375);
+		margin-top: 20px;
 		}
 
 		&__cta {
 			@include adaptiveValue("width", 474, 315, 0, 768, 375);
 			@include adaptiveValue("margin-top", 40, 30, 0, 768, 480);
 			border-radius: toRem(8);
-			@include adaptiveValue("font-size", 20, 16, 0, 768, 375);
 		}
 	}
 
 	.bonus-items {
 		flex-direction: column;
 		align-items: center;
-	@include adaptiveValue("gap", 20, 8, 0, 768, 375);
+		gap: 20px;
 		padding-inline: toRem(20);
-margin-top: 10px;
-		&__image {
-			width: min(100%, toRem(476));
+		&__item {
+			position: relative;
+			flex-basis: auto;
+			@include adaptiveValue("width", 476, 370, 0, 768, 490);
+			@include adaptiveValue("height", 107, 80, 0, 768, 490);
+			padding: 20px 12px 20px 20px;
+		}
+
+		&__value {
+			@include adaptiveValue("font-size", 36, 28, 0, 768, 490);
+		}
+
+		&__label {
+			@include adaptiveValue("font-size", 18, 14, 0, 768, 490);
+		}
+
+		&__image-wrap{
+			@include adaptiveValue("width", 147, 130, 0, 768, 490);
+			@include adaptiveValue("height", 122, 92, 0, 768, 490);
 		}
 	}
 
 	.matches {
 		&__title {
-			max-width: toRem(620);
-			margin-inline: auto;
-			padding-inline: toRem(20);
-			@include adaptiveValue("font-size", 28, 24, 0, 768, 375);
-			line-height: 1.22;
+		 @include adaptiveValue("font-size", 25, 16, 0, 768, 480);
 		}
 	}
 
@@ -465,26 +610,75 @@ margin-top: 10px;
 		@include adaptiveValue("--match-slider-slide-width", 474, 315, 0, 768, 375);
 
 		&__track {
-	@include adaptiveValue("gap", 24, 16, 0, 768, 375);
 		}
 &__viewport{
-	// margin-inline: -15px;
+padding-block: 25px;
 }
 		&__arrow {
 			display: none;
 		}
 	}
 }
-
 @media (max-width: toEm(480)) {
-	 .hero__cta{ 
+ 
+.home{
+	min-height: 85svh;
+}
+	 .hero{
+		min-height: 85svh;
+	&__picture::before{
+background:none;
+	}
+		&__container{
+			min-height: 85svh;
+		}
+		&__title{
+			@include adaptiveValue("font-size", 26, 20, 0, 480, 380);
+		}
+		&__text{ 
+			display: none;
+		}
+		&__bonus.bonus-items{
+			margin-top: 15px;
+	 gap: 15px;
+		}
+		&__cta{ 
 min-height: toRem(59);
 font-size: 15px;
 	 }
- 
+	}
+.bonus-items__item{
+	flex-basis: auto;
+	@include adaptiveValue("width", 395, 325, 0, 480, 375);
+}
+.bonus-items__image-wrap{
+	@include adaptiveValue("width", 130, 117, 0, 480, 375);
+	@include adaptiveValue("height", 92, 88, 0, 480, 375);
+	right: 0;
+	bottom: 0;
+}
 	.match-slider {
 		&__track {
 			gap: toRem(17);
 		}
+		&__viewport{
+			padding-block: 25px;
+		}
+	}
+}
+
+@media (min-width: toEm(480.02)) and (max-width: toEm(768)) {
+	.hero__cta {
+margin-top: 25px;
+		@include adaptiveValue("font-size", 20, 16, 0, 768, 480);
+		@include adaptiveValue("min-height", 72, 52, 0, 768, 480);
+	}
+
+	// .matches__title {
+	// 	@include adaptiveValue("font-size", 28, 24, 0, 768, 480);
+	// }
+
+	.match-slider__track {
+		@include adaptiveValue("gap", 24, 16, 0, 768, 480);
 	}
 }

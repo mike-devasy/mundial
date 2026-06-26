@@ -13,8 +13,41 @@ width: 100%;
 		pointer-events: auto;
 
 	}
-
-			&__brand-image{
-			 @include adaptiveValue("width", 376, 220, 0, 768, 480); 
 }
+
+.logo-header {
+	display: inline-flex;
+	align-items: center;
+	gap: toRem(12);
+	color: var(--secondary);
+	text-decoration: none;
+	white-space: nowrap;
+
+	&__icon {
+		display: block;
+		@include adaptiveValue("width", 70, 42, 0, $maxWidthContainer, 375);
+		@include adaptiveValue("height", 70, 42, 0, $maxWidthContainer, 375);
+		flex: 0 0 auto;
+	}
+
+	&__text {
+		display: inline-flex;
+		align-items: center;
+		font-family: var(--secondaryFont);
+		@include adaptiveValue("font-size", 37, 26, 0, $maxWidthContainer, 375);
+		font-style: italic;
+		font-weight: 900;
+		line-height: 1;
+		letter-spacing: 0;
+		text-transform: uppercase;
+		text-shadow: 0 toRem(3) toRem(12) rgba(0, 0, 0, 0.45);
+	}
+
+	&__text-main {
+		color: var(--secondary);
+	}
+
+	&__text-accent {
+		color: var(--orangeColor);
+	}
 }
