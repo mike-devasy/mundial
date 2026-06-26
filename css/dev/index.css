@@ -1426,7 +1426,7 @@ body::after {
     height: 1.875rem;
   }
   .header .logo-header__text {
-    font-size: 1rem;
+    font-size: 1.125rem;
     white-space: nowrap;
   }
   [data-fls-header-scroll].--header-scroll {
