@@ -1419,11 +1419,11 @@ body::after {
   }
   .logo-header {
     gap: 0.375rem;
-    height: 2.25rem;
+    height: 1.875rem;
   }
   .logo-header__icon {
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 1.875rem;
+    height: 1.875rem;
   }
   .logo-header__text {
     font-size: 1.1875rem;
