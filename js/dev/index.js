@@ -1357,6 +1357,7 @@ var LIVE_DURATION_MINUTES = 120;
 var STATUS_REFRESH_INTERVAL = 3600 * 1e3;
 var MANUAL_PAUSE_DURATION = 12 * 1e3;
 var LIVE_CENTER_INTERVAL = 5 * 1e3;
+var AUTO_RETURN_SCROLL_DURATION = 4700;
 var FORCED_PAST_LAST_DATE = "2026-06-16";
 var formatMatchDate = (date) => {
 	const [, month, day] = date.split("-");
@@ -1403,6 +1404,8 @@ var initMatchSlider = () => {
 	let autoCenterTimerId = null;
 	let pauseTimerId = null;
 	let resizeTimerId = null;
+	let scrollAnimationFrameId = null;
+	let restoreScrollSettings = null;
 	let liveCycleIndex = 0;
 	let highlightedIndex = -1;
 	let isAutoPaused = false;
@@ -1420,11 +1423,60 @@ var initMatchSlider = () => {
 		if (nextUpcomingIndex >= 0) return nextUpcomingIndex;
 		return maxIndex;
 	};
+	const cancelScrollAnimation = () => {
+		if (scrollAnimationFrameId) {
+			window.cancelAnimationFrame(scrollAnimationFrameId);
+			scrollAnimationFrameId = null;
+		}
+		restoreScrollSettings?.();
+		restoreScrollSettings = null;
+	};
+	const animateScrollTo = (left, duration, onComplete) => {
+		cancelScrollAnimation();
+		const startLeft = viewport.scrollLeft;
+		const distance = left - startLeft;
+		const startTime = window.performance.now();
+		const previousScrollSnapType = viewport.style.scrollSnapType;
+		const previousScrollBehavior = viewport.style.scrollBehavior;
+		viewport.style.scrollSnapType = "none";
+		viewport.style.scrollBehavior = "auto";
+		restoreScrollSettings = () => {
+			viewport.style.scrollSnapType = previousScrollSnapType;
+			viewport.style.scrollBehavior = previousScrollBehavior;
+		};
+		if (!distance || duration <= 0) {
+			viewport.scrollLeft = left;
+			restoreScrollSettings?.();
+			restoreScrollSettings = null;
+			onComplete?.();
+			return;
+		}
+		const step = (currentTime) => {
+			const progress = Math.min((currentTime - startTime) / duration, 1);
+			viewport.scrollLeft = startLeft + distance * (progress < .5 ? 4 * progress * progress * progress : 1 - Math.pow(-2 * progress + 2, 3) / 2);
+			if (progress < 1) {
+				scrollAnimationFrameId = window.requestAnimationFrame(step);
+				return;
+			}
+			scrollAnimationFrameId = null;
+			viewport.scrollLeft = left;
+			restoreScrollSettings?.();
+			restoreScrollSettings = null;
+			onComplete?.();
+		};
+		scrollAnimationFrameId = window.requestAnimationFrame(step);
+	};
 	const centerSlide = (index, behavior = "smooth") => {
 		const slide = slides[index];
 		if (!slide) return;
 		const nextScrollLeft = slide.offsetLeft - (viewport.clientWidth - slide.offsetWidth) / 2;
 		isProgrammaticScroll = true;
+		if (behavior === "slow") {
+			animateScrollTo(nextScrollLeft, AUTO_RETURN_SCROLL_DURATION, () => {
+				isProgrammaticScroll = false;
+			});
+			return;
+		}
 		viewport.scrollTo({
 			left: nextScrollLeft,
 			behavior
@@ -1486,17 +1538,23 @@ var initMatchSlider = () => {
 			scheduleAutoCentering();
 		}, LIVE_CENTER_INTERVAL);
 	};
-	const refreshStatuses = ({ shouldCenter = true } = {}) => {
+	const refreshStatuses = ({ shouldCenter = true, behavior = "smooth" } = {}) => {
 		applyStatuses();
 		if (shouldCenter && !isAutoPaused) {
 			const liveIndexes = getLiveIndexes();
 			if (liveIndexes.length) {
 				const nextLiveIndex = liveIndexes[liveCycleIndex % liveIndexes.length];
 				setHighlightedSlide(nextLiveIndex);
-				setActiveSlide(nextLiveIndex, { pauseAuto: false });
+				setActiveSlide(nextLiveIndex, {
+					pauseAuto: false,
+					behavior
+				});
 			} else {
 				setHighlightedSlide(-1);
-				setActiveSlide(getPreferredIndex(), { pauseAuto: false });
+				setActiveSlide(getPreferredIndex(), {
+					pauseAuto: false,
+					behavior
+				});
 			}
 		}
 		scheduleAutoCentering();
@@ -1508,10 +1566,12 @@ var initMatchSlider = () => {
 		pauseTimerId = window.setTimeout(() => {
 			isAutoPaused = false;
 			pauseTimerId = null;
-			refreshStatuses();
+			refreshStatuses({ behavior: "slow" });
 		}, MANUAL_PAUSE_DURATION);
 	}
 	const handleManualInteraction = () => {
+		cancelScrollAnimation();
+		isProgrammaticScroll = false;
 		pauseAutoCentering();
 	};
 	prevButton?.addEventListener("click", () => {
