@@ -161,6 +161,8 @@ Use the simpler version that produces non-overlapping final CSS in this project.
 ```
 
 - This is required because the production build can sort media queries differently than dev mode.
+- If a fixed rule exists for `max-width: toEm(480)`, do not also leave `adaptiveValue()` for the same selector/property across `768-375`; split the adaptive range to `480.02-768` so the production media-query sorter cannot override the fixed mobile value.
+- Avoid raw breakpoint variables in media queries when they can compile without units, for example `@media (max-width:$mobileSmall)`. Prefer explicit unit-safe expressions such as `@media (max-width: toEm(480))`.
 
 ### Hero
 
