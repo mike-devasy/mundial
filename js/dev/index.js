@@ -749,6 +749,12 @@ var _70_default = "" + new URL("../assets/img/cards/70.webp", import.meta.url).h
 //#region src/assets/img/cards/71.webp?url
 var _71_default = "" + new URL("../assets/img/cards/71.webp", import.meta.url).href;
 //#endregion
+//#region src/assets/img/cards/73.webp?url
+var _73_default = "" + new URL("../assets/img/cards/73.webp", import.meta.url).href;
+//#endregion
+//#region src/assets/img/cards/74.webp?url
+var _74_default = "" + new URL("../assets/img/cards/74.webp", import.meta.url).href;
+//#endregion
 //#region src/assets/img/cards/cze-rsa.webp?url
 var cze_rsa_default = "" + new URL("../assets/img/cards/cze-rsa.webp", import.meta.url).href;
 //#endregion
@@ -825,6 +831,8 @@ var cardImages = /* #__PURE__ */ Object.assign({
 	"../../../assets/img/cards/69.webp": _69_default,
 	"../../../assets/img/cards/70.webp": _70_default,
 	"../../../assets/img/cards/71.webp": _71_default,
+	"../../../assets/img/cards/73.webp": _73_default,
+	"../../../assets/img/cards/74.webp": _74_default,
 	"../../../assets/img/cards/cze-rsa.webp": cze_rsa_default
 });
 var getCardImage = (fileName) => {
@@ -1336,6 +1344,20 @@ var matches = [
 		"71.webp",
 		["Jordania", "JOR"],
 		["Argentina", "ARG"]
+	],
+	[
+		"2026-06-28-rsa-can",
+		"2026-06-28T16:00:00-03:00",
+		"73.webp",
+		["Sudáfrica", "RSA"],
+		["Canadá", "CAN"]
+	],
+	[
+		"2026-06-29-bra-jpn",
+		"2026-06-29T16:00:00-03:00",
+		"74.webp",
+		["Brasil", "BRA"],
+		["Japón", "JPN"]
 	]
 ].map(([id, kickoff, imageFile, home, away]) => ({
 	id,
