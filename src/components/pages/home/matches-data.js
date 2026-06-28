@@ -521,6 +521,20 @@ const rawMatches = [
     ["Jordania", "JOR"],
     ["Argentina", "ARG"],
   ],
+  [
+    "2026-06-28-rsa-can",
+    "2026-06-28T16:00:00-03:00",
+    "73.webp",
+    ["Sudáfrica", "RSA"],
+    ["Canadá", "CAN"],
+  ],
+  [
+    "2026-06-29-bra-jpn",
+    "2026-06-29T16:00:00-03:00",
+    "74.webp",
+    ["Brasil", "BRA"],
+    ["Japón", "JPN"],
+  ],
 ]
 
 export const matches = rawMatches.map(
